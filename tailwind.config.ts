@@ -19,11 +19,11 @@ export default {
 		},
 		extend: {
 			fontFamily: {
-				hero: ['Playfair Display', 'serif'],
-				heading: ['Playfair Display', 'serif'],
-				body: ['Inter', 'sans-serif'],
-				sans: ['Inter', 'sans-serif'],
-				serif: ['Playfair Display', 'serif'],
+				hero: ['Bebas Neue', 'cursive'],
+				heading: ['Bebas Neue', 'cursive'],
+				body: ['Montserrat', 'sans-serif'],
+				sans: ['Montserrat', 'sans-serif'],
+				serif: ['Bebas Neue', 'cursive'],
 			},
 			fontSize: {
 				'hero': ['clamp(3rem, 8vw, 8rem)', '0.9'],
