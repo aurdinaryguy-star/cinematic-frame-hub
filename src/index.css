@@ -2,41 +2,66 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* Cinematic Portfolio Design System */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&family=Inter:wght@300;400;500;600;700;800;900&display=swap');
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Cinematic Color Palette */
+    --background: 0 0% 4%;
+    --foreground: 45 10% 92%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card: 0 0% 8%;
+    --card-foreground: 45 10% 92%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 6%;
+    --popover-foreground: 45 10% 92%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 45 95% 68%;
+    --primary-foreground: 0 0% 4%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 0 0% 12%;
+    --secondary-foreground: 45 10% 92%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 0 0% 15%;
+    --muted-foreground: 45 5% 65%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 45 95% 68%;
+    --accent-foreground: 0 0% 4%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 75% 60%;
+    --destructive-foreground: 45 10% 92%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 0 0% 18%;
+    --input: 0 0% 12%;
+    --ring: 45 95% 68%;
 
-    --radius: 0.5rem;
+    --radius: 0.75rem;
+
+    /* Cinematic Gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(0 0% 4%), hsl(0 0% 8%));
+    --gradient-card: linear-gradient(145deg, hsl(0 0% 6%), hsl(0 0% 10%));
+    --gradient-accent: linear-gradient(135deg, hsl(45 95% 68%), hsl(45 85% 72%));
+    --gradient-overlay: linear-gradient(180deg, transparent, hsl(0 0% 4% / 0.8));
+
+    /* Cinematic Shadows */
+    --shadow-cinematic: 0 25px 50px -12px hsl(0 0% 0% / 0.5);
+    --shadow-card: 0 10px 25px -3px hsl(0 0% 0% / 0.3);
+    --shadow-accent: 0 10px 30px -5px hsl(45 95% 68% / 0.3);
+
+    /* Typography Scale */
+    --font-hero: 'Playfair Display', serif;
+    --font-heading: 'Playfair Display', serif;
+    --font-body: 'Inter', sans-serif;
+
+    /* Spacing Scale */
+    --space-cinematic: 8rem;
+    --space-section: 6rem;
+    --space-element: 3rem;
+
+    /* Transitions */
+    --transition-smooth: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 
     --sidebar-background: 0 0% 98%;
 
@@ -100,6 +125,114 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-body;
+    scroll-behavior: smooth;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  /* Cinematic Typography */
+  .font-hero {
+    font-family: var(--font-hero);
+    font-weight: 800;
+    line-height: 0.9;
+    letter-spacing: -0.02em;
+  }
+  
+  .font-heading {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+  }
+  
+  .font-body {
+    font-family: var(--font-body);
+    font-weight: 400;
+    line-height: 1.6;
+  }
+
+  /* Cinematic Effects */
+  .cinematic-gradient {
+    background: var(--gradient-hero);
+  }
+  
+  .card-gradient {
+    background: var(--gradient-card);
+  }
+  
+  .accent-gradient {
+    background: var(--gradient-accent);
+  }
+  
+  .shadow-cinematic {
+    box-shadow: var(--shadow-cinematic);
+  }
+  
+  .shadow-card {
+    box-shadow: var(--shadow-card);
+  }
+  
+  .shadow-accent {
+    box-shadow: var(--shadow-accent);
+  }
+
+  /* Smooth Transitions */
+  .transition-smooth {
+    transition: var(--transition-smooth);
+  }
+  
+  .transition-bounce {
+    transition: var(--transition-bounce);
+  }
+
+  /* Hover Effects */
+  .hover-lift {
+    @apply transition-smooth hover:transform hover:-translate-y-2 hover:shadow-cinematic;
+  }
+  
+  .hover-glow {
+    @apply transition-smooth hover:shadow-accent;
+  }
+  
+  .hover-scale {
+    @apply transition-smooth hover:scale-105;
+  }
+
+  /* Full Screen Sections */
+  .section-full {
+    min-height: 100vh;
+    @apply flex items-center justify-center;
+  }
+  
+  .section-cinematic {
+    min-height: 100vh;
+    padding: var(--space-section) 0;
+  }
+
+  /* Navigation Styles */
+  .nav-link {
+    @apply relative font-body font-medium tracking-wide transition-smooth;
+  }
+  
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -4px;
+    left: 50%;
+    background: var(--gradient-accent);
+    transition: var(--transition-smooth);
+    transform: translateX(-50%);
+  }
+  
+  .nav-link:hover::after,
+  .nav-link.active::after {
+    width: 100%;
   }
 }

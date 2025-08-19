@@ -18,6 +18,47 @@ export default {
 			}
 		},
 		extend: {
+			fontFamily: {
+				hero: ['Playfair Display', 'serif'],
+				heading: ['Playfair Display', 'serif'],
+				body: ['Inter', 'sans-serif'],
+				sans: ['Inter', 'sans-serif'],
+				serif: ['Playfair Display', 'serif'],
+			},
+			fontSize: {
+				'hero': ['clamp(3rem, 8vw, 8rem)', '0.9'],
+				'display': ['clamp(2rem, 5vw, 4rem)', '1.1'],
+				'cinematic': ['clamp(1.5rem, 3vw, 2.5rem)', '1.2'],
+			},
+			spacing: {
+				'cinematic': 'var(--space-cinematic)',
+				'section': 'var(--space-section)',
+				'element': 'var(--space-element)',
+			},
+			animation: {
+				'fade-in': 'fadeIn 0.8s ease-out',
+				'slide-up': 'slideUp 0.6s ease-out',
+				'float': 'float 3s ease-in-out infinite',
+				'glow': 'glow 2s ease-in-out infinite alternate',
+			},
+			keyframes: {
+				fadeIn: {
+					'0%': { opacity: '0', transform: 'translateY(20px)' },
+					'100%': { opacity: '1', transform: 'translateY(0)' },
+				},
+				slideUp: {
+					'0%': { opacity: '0', transform: 'translateY(40px)' },
+					'100%': { opacity: '1', transform: 'translateY(0)' },
+				},
+				float: {
+					'0%, 100%': { transform: 'translateY(0px)' },
+					'50%': { transform: 'translateY(-10px)' },
+				},
+				glow: {
+					'0%': { boxShadow: '0 0 20px hsl(45 95% 68% / 0.3)' },
+					'100%': { boxShadow: '0 0 40px hsl(45 95% 68% / 0.6)' },
+				},
+			},
 			colors: {
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
@@ -67,28 +108,6 @@ export default {
 				lg: 'var(--radius)',
 				md: 'calc(var(--radius) - 2px)',
 				sm: 'calc(var(--radius) - 4px)'
-			},
-			keyframes: {
-				'accordion-down': {
-					from: {
-						height: '0'
-					},
-					to: {
-						height: 'var(--radix-accordion-content-height)'
-					}
-				},
-				'accordion-up': {
-					from: {
-						height: 'var(--radix-accordion-content-height)'
-					},
-					to: {
-						height: '0'
-					}
-				}
-			},
-			animation: {
-				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
 			}
 		}
 	},
