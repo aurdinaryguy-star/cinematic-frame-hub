@@ -38,6 +38,7 @@ const WorkSection = () => {
         {
           id: "client1",
           name: "Brand Studio",
+          logo: "/src/assets/IMG_4581.jpg",
           projects: [
             { id: "p1", title: "Campaign 2024", thumbnail: "/src/assets/IMG_4581.jpg", type: "video" },
             { id: "p2", title: "Product Launch", thumbnail: "/src/assets/hero-bg.jpg", type: "image" },
@@ -47,6 +48,7 @@ const WorkSection = () => {
         {
           id: "client2",
           name: "Creative Agency",
+          logo: "/src/assets/hero-bg.jpg",
           projects: [
             { id: "p4", title: "Brand Identity", thumbnail: "/src/assets/IMG_4581.jpg", type: "image" },
             { id: "p5", title: "Website Design", thumbnail: "/src/assets/hero-bg.jpg", type: "image" },
@@ -55,6 +57,7 @@ const WorkSection = () => {
         {
           id: "client3",
           name: "Tech Startup",
+          logo: "/src/assets/portrait.jpg",
           projects: [
             { id: "p6", title: "Product Demo", thumbnail: "/src/assets/portrait.jpg", type: "video" },
             { id: "p7", title: "Company Culture", thumbnail: "/src/assets/IMG_4581.jpg", type: "video" },
@@ -63,6 +66,7 @@ const WorkSection = () => {
         {
           id: "client4",
           name: "Fashion Brand",
+          logo: "/src/assets/IMG_4581.jpg",
           projects: [
             { id: "p8", title: "Lookbook 2024", thumbnail: "/src/assets/hero-bg.jpg", type: "image" },
             { id: "p9", title: "Campaign Video", thumbnail: "/src/assets/portrait.jpg", type: "video" },
@@ -72,6 +76,7 @@ const WorkSection = () => {
         {
           id: "client5",
           name: "Restaurant Chain",
+          logo: "/src/assets/hero-bg.jpg",
           projects: [
             { id: "p11", title: "Menu Photography", thumbnail: "/src/assets/hero-bg.jpg", type: "image" },
             { id: "p12", title: "Commercial Ad", thumbnail: "/src/assets/portrait.jpg", type: "video" },
