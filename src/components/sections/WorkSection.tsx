@@ -95,7 +95,7 @@ const WorkSection = () => {
           name: "Lifestyle Creator",
           projects: [
             { id: "p13", title: "Daily Vlogs", thumbnail: "/src/assets/D4 COMBM 2.mp4", type: "video" },
-            { id: "p14", title: "Morning Routine", thumbnail: "/src/assets/hero-bg.jpg", type: "video" },
+            { id: "p14", title: "Morning Routine", thumbnail: "/D4 COMBM2.MP4", type: "video" },
             { id: "p15", title: "Travel Diary", thumbnail: "/src/assets/D4 COMBM 2.mp4", type: "video" },
           ]
         },
