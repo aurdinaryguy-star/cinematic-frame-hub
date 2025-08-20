@@ -39,42 +39,42 @@ const WorkSection = () => {
           id: "client1",
           name: "Brand Studio",
           projects: [
-            { id: "p1", title: "Campaign 2024", thumbnail: "/placeholder.svg", type: "video" },
-            { id: "p2", title: "Product Launch", thumbnail: "/placeholder.svg", type: "image" },
-            { id: "p3", title: "Brand Refresh", thumbnail: "/placeholder.svg", type: "video" },
+            { id: "p1", title: "Campaign 2024", thumbnail: "/src/assets/IMG_4581.jpg", type: "video" },
+            { id: "p2", title: "Product Launch", thumbnail: "/src/assets/hero-bg.jpg", type: "image" },
+            { id: "p3", title: "Brand Refresh", thumbnail: "/src/assets/portrait.jpg", type: "video" },
           ]
         },
         {
           id: "client2",
           name: "Creative Agency",
           projects: [
-            { id: "p4", title: "Brand Identity", thumbnail: "/placeholder.svg", type: "image" },
-            { id: "p5", title: "Website Design", thumbnail: "/placeholder.svg", type: "image" },
+            { id: "p4", title: "Brand Identity", thumbnail: "/src/assets/IMG_4581.jpg", type: "image" },
+            { id: "p5", title: "Website Design", thumbnail: "/src/assets/hero-bg.jpg", type: "image" },
           ]
         },
         {
           id: "client3",
           name: "Tech Startup",
           projects: [
-            { id: "p6", title: "Product Demo", thumbnail: "/placeholder.svg", type: "video" },
-            { id: "p7", title: "Company Culture", thumbnail: "/placeholder.svg", type: "video" },
+            { id: "p6", title: "Product Demo", thumbnail: "/src/assets/portrait.jpg", type: "video" },
+            { id: "p7", title: "Company Culture", thumbnail: "/src/assets/IMG_4581.jpg", type: "video" },
           ]
         },
         {
           id: "client4",
           name: "Fashion Brand",
           projects: [
-            { id: "p8", title: "Lookbook 2024", thumbnail: "/placeholder.svg", type: "image" },
-            { id: "p9", title: "Campaign Video", thumbnail: "/placeholder.svg", type: "video" },
-            { id: "p10", title: "Behind the Scenes", thumbnail: "/placeholder.svg", type: "video" },
+            { id: "p8", title: "Lookbook 2024", thumbnail: "/src/assets/hero-bg.jpg", type: "image" },
+            { id: "p9", title: "Campaign Video", thumbnail: "/src/assets/portrait.jpg", type: "video" },
+            { id: "p10", title: "Behind the Scenes", thumbnail: "/src/assets/IMG_4581.jpg", type: "video" },
           ]
         },
         {
           id: "client5",
           name: "Restaurant Chain",
           projects: [
-            { id: "p11", title: "Menu Photography", thumbnail: "/placeholder.svg", type: "image" },
-            { id: "p12", title: "Commercial Ad", thumbnail: "/placeholder.svg", type: "video" },
+            { id: "p11", title: "Menu Photography", thumbnail: "/src/assets/hero-bg.jpg", type: "image" },
+            { id: "p12", title: "Commercial Ad", thumbnail: "/src/assets/portrait.jpg", type: "video" },
           ]
         }
       ]
@@ -89,34 +89,34 @@ const WorkSection = () => {
           id: "inf1",
           name: "Lifestyle Creator",
           projects: [
-            { id: "p13", title: "Daily Vlogs", thumbnail: "/placeholder.svg", type: "video" },
-            { id: "p14", title: "Morning Routine", thumbnail: "/placeholder.svg", type: "video" },
-            { id: "p15", title: "Travel Diary", thumbnail: "/placeholder.svg", type: "image" },
+            { id: "p13", title: "Daily Vlogs", thumbnail: "/src/assets/IMG_4581.jpg", type: "video" },
+            { id: "p14", title: "Morning Routine", thumbnail: "/src/assets/hero-bg.jpg", type: "video" },
+            { id: "p15", title: "Travel Diary", thumbnail: "/src/assets/portrait.jpg", type: "image" },
           ]
         },
         {
           id: "inf2",
           name: "Fitness Influencer",
           projects: [
-            { id: "p16", title: "Workout Series", thumbnail: "/placeholder.svg", type: "video" },
-            { id: "p17", title: "Transformation Photos", thumbnail: "/placeholder.svg", type: "image" },
+            { id: "p16", title: "Workout Series", thumbnail: "/src/assets/IMG_4581.jpg", type: "video" },
+            { id: "p17", title: "Transformation Photos", thumbnail: "/src/assets/hero-bg.jpg", type: "image" },
           ]
         },
         {
           id: "inf3",
           name: "Food Blogger",
           projects: [
-            { id: "p18", title: "Recipe Videos", thumbnail: "/placeholder.svg", type: "video" },
-            { id: "p19", title: "Food Photography", thumbnail: "/placeholder.svg", type: "image" },
-            { id: "p20", title: "Restaurant Reviews", thumbnail: "/placeholder.svg", type: "video" },
+            { id: "p18", title: "Recipe Videos", thumbnail: "/src/assets/portrait.jpg", type: "video" },
+            { id: "p19", title: "Food Photography", thumbnail: "/src/assets/IMG_4581.jpg", type: "image" },
+            { id: "p20", title: "Restaurant Reviews", thumbnail: "/src/assets/hero-bg.jpg", type: "video" },
           ]
         },
         {
           id: "inf4",
           name: "Tech Reviewer",
           projects: [
-            { id: "p21", title: "Product Unboxing", thumbnail: "/placeholder.svg", type: "video" },
-            { id: "p22", title: "Tech Comparisons", thumbnail: "/placeholder.svg", type: "video" },
+            { id: "p21", title: "Product Unboxing", thumbnail: "/src/assets/portrait.jpg", type: "video" },
+            { id: "p22", title: "Tech Comparisons", thumbnail: "/src/assets/IMG_4581.jpg", type: "video" },
           ]
         }
       ]
@@ -131,34 +131,34 @@ const WorkSection = () => {
           id: "ind1",
           name: "Personal Work",
           projects: [
-            { id: "p23", title: "Short Film", thumbnail: "/placeholder.svg", type: "video" },
-            { id: "p24", title: "Photography Series", thumbnail: "/placeholder.svg", type: "image" },
-            { id: "p25", title: "Experimental Video", thumbnail: "/placeholder.svg", type: "video" },
+            { id: "p23", title: "Short Film", thumbnail: "/src/assets/hero-bg.jpg", type: "video" },
+            { id: "p24", title: "Photography Series", thumbnail: "/src/assets/portrait.jpg", type: "image" },
+            { id: "p25", title: "Experimental Video", thumbnail: "/src/assets/IMG_4581.jpg", type: "video" },
           ]
         },
         {
           id: "ind2",
           name: "Art Projects",
           projects: [
-            { id: "p26", title: "Digital Art", thumbnail: "/placeholder.svg", type: "image" },
-            { id: "p27", title: "Time-lapse Creation", thumbnail: "/placeholder.svg", type: "video" },
+            { id: "p26", title: "Digital Art", thumbnail: "/src/assets/IMG_4581.jpg", type: "image" },
+            { id: "p27", title: "Time-lapse Creation", thumbnail: "/src/assets/hero-bg.jpg", type: "video" },
           ]
         },
         {
           id: "ind3",
           name: "Documentary Work",
           projects: [
-            { id: "p28", title: "Local Stories", thumbnail: "/placeholder.svg", type: "video" },
-            { id: "p29", title: "Portrait Series", thumbnail: "/placeholder.svg", type: "image" },
-            { id: "p30", title: "Street Photography", thumbnail: "/placeholder.svg", type: "image" },
+            { id: "p28", title: "Local Stories", thumbnail: "/src/assets/portrait.jpg", type: "video" },
+            { id: "p29", title: "Portrait Series", thumbnail: "/src/assets/IMG_4581.jpg", type: "image" },
+            { id: "p30", title: "Street Photography", thumbnail: "/src/assets/hero-bg.jpg", type: "image" },
           ]
         },
         {
           id: "ind4",
           name: "Music Videos",
           projects: [
-            { id: "p31", title: "Indie Artist Collab", thumbnail: "/placeholder.svg", type: "video" },
-            { id: "p32", title: "Live Performance", thumbnail: "/placeholder.svg", type: "video" },
+            { id: "p31", title: "Indie Artist Collab", thumbnail: "/src/assets/portrait.jpg", type: "video" },
+            { id: "p32", title: "Live Performance", thumbnail: "/src/assets/IMG_4581.jpg", type: "video" },
           ]
         }
       ]
