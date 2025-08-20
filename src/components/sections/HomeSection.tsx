@@ -44,7 +44,7 @@ const HomeSection = () => {
             {/* Video Player */}
             <div className="relative aspect-video rounded-lg overflow-hidden shadow-cinematic hover-lift">
               <video ref={videoRef} className="w-full h-full object-cover" controls muted loop poster="/placeholder.svg">
-                <source src="/sample-video.mp4" type="video/mp4" />
+                <source src="/D4 COMBM 2.MP4" type="video/mp4" />
                 Your browser does not support the video tag.
               </video>
               
