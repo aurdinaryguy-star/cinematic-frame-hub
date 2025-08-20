@@ -1,4 +1,4 @@
-import portraitImage from "@/assets/portrait.jpg";
+import portraitImage from "@/assets/IMG_4581.jpg";
 
 const AboutSection = () => {
   return (
