@@ -4,6 +4,6 @@ import react from '@vitejs/plugin-react'
 
 export default defineConfig({
   // IMPORTANT: this must match your repo name
-  base: '/cinematic-frame-hub/',
+  /: '/cinematic-frame-hub/',
   plugins: [react()],
 })
