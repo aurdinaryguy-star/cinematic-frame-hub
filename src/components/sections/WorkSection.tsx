@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { ArrowRight, Users, Video, Briefcase } from "lucide-react";
+import { ArrowRight, Users, Video, Briefcase, Play } from "lucide-react";
+import VideoModal from "../VideoModal";
 
 interface Category {
   id: string;
@@ -27,6 +28,7 @@ const WorkSection = () => {
   const [currentView, setCurrentView] = useState<"categories" | "clients" | "projects">("categories");
   const [selectedCategory, setSelectedCategory] = useState<Category | null>(null);
   const [selectedClient, setSelectedClient] = useState<Client | null>(null);
+  const [selectedVideo, setSelectedVideo] = useState<{ src: string; title: string } | null>(null);
 
   const categories: Category[] = [
     {
@@ -190,6 +192,12 @@ const WorkSection = () => {
     }
   };
 
+  const handleProjectClick = (project: Project) => {
+    if (project.type === "video") {
+      setSelectedVideo({ src: project.thumbnail, title: project.title });
+    }
+  };
+
   return (
     <div className="section-cinematic">
       <div className="container mx-auto px-6">
@@ -297,14 +305,22 @@ const WorkSection = () => {
               {selectedClient.projects.map((project) => (
                 <div
                   key={project.id}
+                  onClick={() => handleProjectClick(project)}
                   className="group cursor-pointer hover-lift transition-smooth"
                 >
-                  <div className="aspect-video rounded-lg overflow-hidden bg-muted/10 border border-border group-hover:border-accent/50 transition-smooth">
+                  <div className="aspect-video rounded-lg overflow-hidden bg-muted/10 border border-border group-hover:border-accent/50 transition-smooth relative">
                     <img
                       src={project.thumbnail}
                       alt={project.title}
                       className="w-full h-full object-cover group-hover:scale-105 transition-smooth"
                     />
+                    {project.type === "video" && (
+                      <div className="absolute inset-0 flex items-center justify-center bg-black/20 group-hover:bg-black/30 transition-smooth">
+                        <div className="w-16 h-16 rounded-full bg-accent/90 flex items-center justify-center group-hover:bg-accent transition-smooth">
+                          <Play className="w-8 h-8 text-white ml-1" />
+                        </div>
+                      </div>
+                    )}
                   </div>
                   <h3 className="font-heading text-lg text-foreground mt-4 group-hover:text-accent transition-smooth">
                     {project.title}
@@ -318,6 +334,14 @@ const WorkSection = () => {
           </div>
         )}
       </div>
+
+      {/* Video Modal */}
+      <VideoModal
+        isOpen={!!selectedVideo}
+        onClose={() => setSelectedVideo(null)}
+        videoSrc={selectedVideo?.src || ""}
+        title={selectedVideo?.title || ""}
+      />
     </div>
   );
 };
