@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Calendar, Clock, ArrowRight } from "lucide-react";
 
 interface BlogPost {
@@ -11,6 +12,8 @@ interface BlogPost {
 }
 
 const BlogSection = () => {
+  const [visiblePosts, setVisiblePosts] = useState(6);
+  const [selectedPost, setSelectedPost] = useState<BlogPost | null>(null);
   const blogPosts: BlogPost[] = [
     {
       id: "1",
@@ -65,8 +68,45 @@ const BlogSection = () => {
       readTime: "6 min read",
       image: "/placeholder.svg",
       category: "Business"
+    },
+    {
+      id: "7",
+      title: "Behind the Scenes: Music Video Production",
+      excerpt: "The creative process and technical challenges of producing high-energy music videos on tight schedules.",
+      date: "2023-12-10",
+      readTime: "5 min read",
+      image: "/placeholder.svg",
+      category: "Music Video"
+    },
+    {
+      id: "8",
+      title: "Storytelling Through Visual Effects",
+      excerpt: "How modern VFX can enhance narrative without overwhelming the story or breaking audience immersion.",
+      date: "2023-12-05",
+      readTime: "7 min read",
+      image: "/placeholder.svg",
+      category: "VFX"
+    },
+    {
+      id: "9",
+      title: "The Psychology of Brand Films",
+      excerpt: "Understanding how emotional storytelling in commercial work can create lasting connections with audiences.",
+      date: "2023-11-28",
+      readTime: "6 min read",
+      image: "/placeholder.svg",
+      category: "Commercial"
     }
   ];
+
+  const handlePostClick = (post: BlogPost) => {
+    setSelectedPost(post);
+  };
+
+  const handleLoadMore = () => {
+    setVisiblePosts(prev => Math.min(prev + 3, blogPosts.length));
+  };
+
+  const displayedPosts = blogPosts.slice(0, visiblePosts);
 
   const formatDate = (dateString: string) => {
     const date = new Date(dateString);
@@ -92,9 +132,10 @@ const BlogSection = () => {
 
           <div className="max-w-6xl mx-auto">
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {blogPosts.map((post) => (
+              {displayedPosts.map((post) => (
                 <article
                   key={post.id}
+                  onClick={() => handlePostClick(post)}
                   className="card-gradient rounded-lg overflow-hidden hover-lift transition-smooth group cursor-pointer"
                 >
                   {/* Featured Image */}
@@ -145,14 +186,89 @@ const BlogSection = () => {
             </div>
 
             {/* Load More Button */}
-            <div className="text-center mt-12">
-              <button className="px-8 py-3 rounded-lg bg-card border border-border text-foreground hover:border-accent hover:text-accent transition-smooth font-body font-medium">
-                Load More Posts
-              </button>
-            </div>
+            {visiblePosts < blogPosts.length && (
+              <div className="text-center mt-12">
+                <button 
+                  onClick={handleLoadMore}
+                  className="px-8 py-3 rounded-lg bg-card border border-border text-foreground hover:border-accent hover:text-accent transition-smooth font-body font-medium"
+                >
+                  Load More Posts ({blogPosts.length - visiblePosts} remaining)
+                </button>
+              </div>
+            )}
           </div>
         </div>
       </div>
+
+      {/* Blog Post Modal */}
+      {selectedPost && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center">
+          {/* Backdrop */}
+          <div 
+            className="absolute inset-0 bg-black/80 backdrop-blur-sm"
+            onClick={() => setSelectedPost(null)}
+          />
+          
+          {/* Modal Content */}
+          <div className="relative z-10 w-full max-w-4xl mx-4 max-h-[90vh] overflow-y-auto">
+            <div className="bg-card border border-border rounded-lg shadow-elegant">
+              {/* Header */}
+              <div className="p-6 border-b border-border">
+                <div className="flex items-center justify-between mb-4">
+                  <span className="px-3 py-1 rounded-full bg-accent/10 border border-accent/20 text-accent font-body text-sm">
+                    {selectedPost.category}
+                  </span>
+                  <button
+                    onClick={() => setSelectedPost(null)}
+                    className="p-2 rounded-md hover:bg-muted/10 transition-smooth"
+                  >
+                    <ArrowRight className="w-5 h-5 text-muted-foreground hover:text-foreground rotate-45" />
+                  </button>
+                </div>
+                <h1 className="font-heading text-2xl md:text-3xl text-foreground mb-4">
+                  {selectedPost.title}
+                </h1>
+                <div className="flex items-center space-x-4 text-sm text-muted-foreground">
+                  <div className="flex items-center space-x-1">
+                    <Calendar className="w-4 h-4" />
+                    <span>{formatDate(selectedPost.date)}</span>
+                  </div>
+                  <div className="flex items-center space-x-1">
+                    <Clock className="w-4 h-4" />
+                    <span>{selectedPost.readTime}</span>
+                  </div>
+                </div>
+              </div>
+              
+              {/* Featured Image */}
+              <div className="aspect-video">
+                <img
+                  src={selectedPost.image}
+                  alt={selectedPost.title}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              
+              {/* Content */}
+              <div className="p-6">
+                <p className="font-body text-muted-foreground leading-relaxed mb-6">
+                  {selectedPost.excerpt}
+                </p>
+                <div className="prose prose-neutral dark:prose-invert max-w-none">
+                  <p className="font-body text-foreground leading-relaxed">
+                    This is where the full blog post content would appear. In a real application, 
+                    you would fetch the complete article content from your backend or CMS.
+                  </p>
+                  <p className="font-body text-foreground leading-relaxed mt-4">
+                    To implement full blog functionality with rich content editing, image uploads, 
+                    and post management, you'll need to connect to a backend service like Supabase.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
