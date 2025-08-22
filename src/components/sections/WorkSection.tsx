@@ -90,7 +90,7 @@ const WorkSection = () => {
           projects: [
             { id: "j1", title: "Just Wravel Video 1", thumbnail: "/JUSTWRAVEL1.MP4", type: "video" },
             { id: "j2", title: "Just Wravel Video 2", thumbnail: "/JUSTWRAVEL2.MP4", type: "video" },
-            { id: "j3", title: "Just Wravel Video 3", thumbnail: "/JUSTWRAVEL3.MOV", type: "video" },
+            { id: "j3", title: "Just Wravel Video 3", thumbnail: "/JUSTWRAVEL3.mov", type: "video" },
           ]
         },
         {
@@ -98,9 +98,9 @@ const WorkSection = () => {
           name: "Volunteer Yatra",
           logo: volunteerYatraLogo,
           projects: [
-            { id: "v1", title: "Volunteer Video 1", thumbnail: "/VY1.mp4", type: "video" },
-            { id: "v2", title: "Volunteer Video 2", thumbnail: "/VY2.mp4", type: "video" },
-            { id: "v3", title: "Volunteer Video 3", thumbnail: "/VY3.mp4", type: "video" },
+            { id: "v1", title: "Volunteer Video 1", thumbnail: "/VY1.MP4", type: "video" },
+            { id: "v2", title: "Volunteer Video 2", thumbnail: "/VY2.MP4", type: "video" },
+            { id: "v3", title: "Volunteer Video 3", thumbnail: "/VY3.MP4", type: "video" },
             { id: "v4", title: "Volunteer Video 4", thumbnail: "/D4%20COMBM%202.MP4", type: "video" },
           ]
         },
