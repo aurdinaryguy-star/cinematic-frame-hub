@@ -36,21 +36,29 @@ const AboutSection = () => {
                   
                   <div className="space-y-4 font-body text-lg text-muted-foreground leading-relaxed">
                     <p>
-                      I'm a passionate visual storyteller with over a decade of experience 
-                      in creating compelling cinematic content. My work spans across commercial 
-                      campaigns, independent films, and digital media.
+                      Hi, I’m <strong>Prakash Kumar</strong> — a visual storyteller,
+                      cinematographer, and content creator based in New Delhi. I specialize in
+                      crafting cinematic visuals that inspire, educate, and connect with people.
                     </p>
                     
                     <p>
-                      Every project is an opportunity to push creative boundaries and tell 
-                      meaningful stories that resonate with audiences. I believe in the power 
-                      of visual narrative to inspire, educate, and transform.
+                     From travel films to brand campaigns, my work blends creativity with
+                     technical precision, always aiming to tell stories that stay with the
+                     audience long after the screen goes dark. I believe every frame has the
+                     power to evoke emotion, and I strive to bring authenticity, depth, and
+                     artistry into my projects.
                     </p>
                     
                     <p>
-                      When I'm not behind the camera, you'll find me exploring new technologies, 
-                      mentoring emerging creatives, and constantly seeking inspiration from 
-                      the world around us.
+                     When I’m not behind the camera, you’ll find me exploring hidden corners
+                     of cities, riding my bike through the mountains, or simply observing
+                     everyday life — because the best stories often come from the simplest
+                     moments.
+                    </p>
+  
+                    <p>
+                     My mission is simple: <em>to capture the world in a way that inspires
+                     people to see beauty, chase experiences, and tell their own stories.</em>
                     </p>
                   </div>
                 </div>
