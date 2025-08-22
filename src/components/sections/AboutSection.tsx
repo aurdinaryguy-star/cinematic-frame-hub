@@ -88,20 +88,24 @@ const AboutSection = () => {
                 </div>
 
                 {/* Awards/Recognition */}
-                <div className="space-y-4">
+               <div className="space-y-4">
   <h4 className="font-heading text-xl text-foreground">
     Recognition
   </h4>
   <div className="space-y-3">
     {[
-      "Created and edited over 4500+ videos, reaching more than 100M+ views across YouTube and social media.",
+      "Created and edited over 2000+ videos, reaching more than 100M+ views across YouTube and social media.",
       "Contributed to 700K+ YouTube subscribers through strategic content and cinematic storytelling.",
       "Collaborated with architecture and luxury brands like HB/HBS, producing high-end cinematic campaigns.",
-      "Licensed drone pilot with expertise in capturing landscape & aerial cinematography for resorts and commercial projects."
+      "Licensed drone pilot with expertise in capturing landscape & aerial cinematography for resorts and commercial projects.",
+      `<strong><a href="https://dgca.gov.in" target="_blank" rel="noopener noreferrer" class="text-accent hover:underline">DGCA Certified Drone Pilot</a></strong> – officially licensed to operate drones in India.`
     ].map((award, index) => (
       <div key={index} className="flex items-start space-x-3">
         <div className="w-2 h-2 rounded-full bg-accent mt-3 flex-shrink-0"></div>
-        <p className="font-body text-muted-foreground">{award}</p>
+        <p
+          className="font-body text-muted-foreground"
+          dangerouslySetInnerHTML={{ __html: award }}
+        ></p>
       </div>
                     ))}
                   </div>
