@@ -75,10 +75,10 @@ const WorkSection = () => {
           name: "HBS",
           logo: hbsLogo,
           projects: [
-            { id: "h1", title: "HBS Video 1", thumbnail: "/D4%20COMBM%202.MP4", type: "video" },
-            { id: "h2", title: "HBS Video 2", thumbnail: "/D4%20COMBM%202.MP4", type: "video" },
-            { id: "h3", title: "HBS Video 3", thumbnail: "/D4%20COMBM%202.MP4", type: "video" },
-            { id: "h4", title: "HBS Video 4", thumbnail: "/D4%20COMBM%202.MP4", type: "video" },
+            { id: "h1", title: "HBS Video 1", thumbnail: "/HBS1.mp4", type: "video" },
+            { id: "h2", title: "HBS Video 2", thumbnail: "/HBS2.MP4", type: "video" },
+            { id: "h3", title: "HBS Video 3", thumbnail: "/HBS3.mp4", type: "video" },
+            { id: "h4", title: "HBS Video 4", thumbnail: "/HBS4.mp4", type: "video" },
             { id: "h5", title: "HBS Photo 1", thumbnail: portraitImage, type: "image" },
             { id: "h6", title: "HBS Photo 2", thumbnail: gymImage, type: "image" },
           ]
