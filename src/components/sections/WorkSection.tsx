@@ -98,9 +98,9 @@ const WorkSection = () => {
           name: "Volunteer Yatra",
           logo: volunteerYatraLogo,
           projects: [
-            { id: "v1", title: "Volunteer Video 1", thumbnail: "/D4%20COMBM%202.MP4", type: "video" },
-            { id: "v2", title: "Volunteer Video 2", thumbnail: "/D4%20COMBM%202.MP4", type: "video" },
-            { id: "v3", title: "Volunteer Video 3", thumbnail: "/D4%20COMBM%202.MP4", type: "video" },
+            { id: "v1", title: "Volunteer Video 1", thumbnail: "/VY1.mp4", type: "video" },
+            { id: "v2", title: "Volunteer Video 2", thumbnail: "/VY2.mp4", type: "video" },
+            { id: "v3", title: "Volunteer Video 3", thumbnail: "/VY3.mp4", type: "video" },
             { id: "v4", title: "Volunteer Video 4", thumbnail: "/D4%20COMBM%202.MP4", type: "video" },
           ]
         },
