@@ -58,8 +58,8 @@ const WorkSection = () => {
         },
         {
           id: "client3",
-          name: "Tech Startup",
-          logo: "/src/assets/portrait.jpg",
+          name: "The Parent Code",
+          logo: "/src/assets/TPC.jpg",
           projects: [
             { id: "p6", title: "Product Demo", thumbnail: "/src/assets/portrait.jpg", type: "video" },
             { id: "p7", title: "Company Culture", thumbnail: "/src/assets/IMG_4581.jpg", type: "video" },
