@@ -97,7 +97,7 @@ const AboutSection = () => {
       "Created and edited over 2000+ videos, reaching more than 100M+ views across YouTube and social media.",
       "Contributed to 700K+ YouTube subscribers through strategic content and cinematic storytelling.",
       "Collaborated with architecture and luxury brands like HB/HBS, producing high-end cinematic campaigns.",
-      "Licensed drone pilot with expertise in capturing landscape & aerial cinematography for resorts and commercial projects.",
+      "My clicked photo was published by ANI.",
       `<strong><a href="https://dgca.gov.in" target="_blank" rel="noopener noreferrer" class="text-accent hover:underline">DGCA Certified Drone Pilot</a></strong> – officially licensed to operate drones in India.`
     ].map((award, index) => (
       <div key={index} className="flex items-start space-x-3">
