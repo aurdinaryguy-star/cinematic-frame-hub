@@ -1,11 +1,8 @@
-import { Instagram, Youtube, Twitter, Facebook } from "lucide-react";
+import { Instagram } from "lucide-react";
 
 const SocialIcons = () => {
   const socials = [
-    { icon: Instagram, href: "#", label: "Instagram" },
-    { icon: Youtube, href: "#", label: "YouTube" },
-    { icon: Twitter, href: "#", label: "Twitter" },
-    { icon: Facebook, href: "#", label: "Facebook" },
+    { icon: Instagram, href: "https://www.instagram.com/aurdinaryguy/", label: "Instagram" },
   ];
 
   return (

@@ -38,50 +38,51 @@ const WorkSection = () => {
       icon: Briefcase,
       clients: [
         {
-          id: "client1",
-          name: "sunstone",
+          id: "sunstone",
+          name: "Sunstone",
           logo: "/src/assets/sunstone.png",
           projects: [
-            { id: "p1", title: "Campaign 2024", thumbnail: "/src/assets/IMG_4581.jpg", type: "video" },
-            { id: "p2", title: "Product Launch", thumbnail: "/src/assets/hero-bg.jpg", type: "image" },
-            { id: "p3", title: "Brand Refresh", thumbnail: "/src/assets/portrait.jpg", type: "video" },
+            { id: "p1", title: "Sunstone Project", thumbnail: "/src/assets/sunstone.png", type: "image" },
           ]
         },
         {
-          id: "client2",
-          name: "Creative Agency",
-          logo: "/src/assets/hero-bg.jpg",
+          id: "justwravel",
+          name: "Just Wravel",
+          logo: "/src/assets/just wravel.png",
           projects: [
-            { id: "p4", title: "Brand Identity", thumbnail: "/src/assets/IMG_4581.jpg", type: "image" },
-            { id: "p5", title: "Website Design", thumbnail: "/src/assets/hero-bg.jpg", type: "image" },
+            { id: "p2", title: "Just Wravel Project", thumbnail: "/src/assets/just wravel.png", type: "image" },
           ]
         },
         {
-          id: "client3",
-          name: "The Parent Code",
-          logo: "/src/assets/TPC.jpg",
+          id: "hbs",
+          name: "HBS",
+          logo: "/src/assets/hbs.png",
           projects: [
-            { id: "p6", title: "Product Demo", thumbnail: "/src/assets/portrait.jpg", type: "video" },
-            { id: "p7", title: "Company Culture", thumbnail: "/src/assets/IMG_4581.jpg", type: "video" },
+            { id: "p3", title: "HBS Project", thumbnail: "/src/assets/hbs.png", type: "image" },
           ]
         },
         {
-          id: "client4",
-          name: "Fashion Brand",
-          logo: "/src/assets/IMG_4581.jpg",
+          id: "volunteer",
+          name: "Volunteer Yatra",
+          logo: "/src/assets/volunteer yatra .jpg",
           projects: [
-            { id: "p8", title: "Lookbook 2024", thumbnail: "/src/assets/hero-bg.jpg", type: "image" },
-            { id: "p9", title: "Campaign Video", thumbnail: "/src/assets/portrait.jpg", type: "video" },
-            { id: "p10", title: "Behind the Scenes", thumbnail: "/src/assets/IMG_4581.jpg", type: "video" },
+            { id: "p4", title: "Volunteer Yatra Project", thumbnail: "/src/assets/volunteer yatra .jpg", type: "image" },
           ]
         },
         {
-          id: "client5",
-          name: "Restaurant Chain",
-          logo: "/src/assets/hero-bg.jpg",
+          id: "aspen",
+          name: "Aspen",
+          logo: "/src/assets/aspen.png",
           projects: [
-            { id: "p11", title: "Menu Photography", thumbnail: "/src/assets/hero-bg.jpg", type: "image" },
-            { id: "p12", title: "Commercial Ad", thumbnail: "/src/assets/portrait.jpg", type: "video" },
+            { id: "p5", title: "Aspen Project", thumbnail: "/src/assets/aspen.png", type: "image" },
+          ]
+        },
+        {
+          id: "tpc",
+          name: "The Parent Code (TPC)",
+          logo: "/src/assets/TPC.jpeg",
+          projects: [
+            { id: "p6", title: "The Parent Code Project", thumbnail: "/src/assets/TPC.jpeg", type: "image" },
           ]
         }
       ]
@@ -308,19 +309,21 @@ const WorkSection = () => {
                   onClick={() => handleProjectClick(project)}
                   className="group cursor-pointer hover-lift transition-smooth"
                 >
-                  <div className="aspect-video rounded-lg overflow-hidden bg-muted/10 border border-border group-hover:border-accent/50 transition-smooth relative">
-                    <img
-                      src={project.thumbnail}
-                      alt={project.title}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-smooth"
-                    />
-                    {project.type === "video" && (
-                      <div className="absolute inset-0 flex items-center justify-center bg-black/20 group-hover:bg-black/30 transition-smooth">
-                        <div className="w-16 h-16 rounded-full bg-accent/90 flex items-center justify-center group-hover:bg-accent transition-smooth">
-                          <Play className="w-8 h-8 text-white ml-1" />
+                  <div className="relative rounded-lg overflow-hidden bg-muted/10 border border-border group-hover:border-accent/50 transition-smooth">
+                    <div className="aspect-square sm:aspect-video">
+                      <img
+                        src={project.thumbnail}
+                        alt={project.title}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-smooth"
+                      />
+                      {project.type === "video" && (
+                        <div className="absolute inset-0 flex items-center justify-center bg-black/20 group-hover:bg-black/30 transition-smooth">
+                          <div className="w-16 h-16 rounded-full bg-accent/90 flex items-center justify-center group-hover:bg-accent transition-smooth">
+                            <Play className="w-8 h-8 text-white ml-1" />
+                          </div>
                         </div>
-                      </div>
-                    )}
+                      )}
+                    </div>
                   </div>
                   <h3 className="font-heading text-lg text-foreground mt-4 group-hover:text-accent transition-smooth">
                     {project.title}
