@@ -122,36 +122,24 @@ const WorkSection = () => {
       clients: [
         {
           id: "inf1",
-          name: "Lifestyle Creator",
+          name: "Influencer Videos",
           projects: [
-            { id: "p13", title: "Daily Vlogs", thumbnail: "/D4%20COMBM%202.MP4", type: "video" },
-            { id: "p14", title: "Morning Routine", thumbnail: "/D4%20COMBM%202.MP4", type: "video" },
-            { id: "p15", title: "Travel Diary", thumbnail: "/D4%20COMBM%202.MP4", type: "video" },
-          ]
-        },
-        {
-          id: "inf2",
-          name: "Fitness Influencer",
-          projects: [
-            { id: "p16", title: "Workout Series", thumbnail: "/src/assets/IMG_4581.jpg", type: "video" },
-            { id: "p17", title: "Transformation Photos", thumbnail: "/src/assets/hero-bg.jpg", type: "image" },
-          ]
-        },
-        {
-          id: "inf3",
-          name: "Food Blogger",
-          projects: [
-            { id: "p18", title: "Recipe Videos", thumbnail: "/src/assets/portrait.jpg", type: "video" },
-            { id: "p19", title: "Food Photography", thumbnail: "/src/assets/IMG_4581.jpg", type: "image" },
-            { id: "p20", title: "Restaurant Reviews", thumbnail: "/src/assets/hero-bg.jpg", type: "video" },
-          ]
-        },
-        {
-          id: "inf4",
-          name: "Tech Reviewer",
-          projects: [
-            { id: "p21", title: "Product Unboxing", thumbnail: "/src/assets/portrait.jpg", type: "video" },
-            { id: "p22", title: "Tech Comparisons", thumbnail: "/src/assets/IMG_4581.jpg", type: "video" },
+            { id: "inf1", title: "Lifestyle Vlog 1", thumbnail: "/D4%20COMBM%202.MP4", type: "video" },
+            { id: "inf2", title: "Lifestyle Vlog 2", thumbnail: "/D4%20COMBM%202.MP4", type: "video" },
+            { id: "inf3", title: "Lifestyle Vlog 3", thumbnail: "/D4%20COMBM%202.MP4", type: "video" },
+            { id: "inf4", title: "Lifestyle Vlog 4", thumbnail: "/D4%20COMBM%202.MP4", type: "video" },
+            { id: "inf5", title: "Lifestyle Vlog 5", thumbnail: "/D4%20COMBM%202.MP4", type: "video" },
+            { id: "inf6", title: "Lifestyle Vlog 6", thumbnail: "/D4%20COMBM%202.MP4", type: "video" },
+            { id: "inf7", title: "Lifestyle Vlog 7", thumbnail: "/D4%20COMBM%202.MP4", type: "video" },
+            { id: "inf8", title: "Lifestyle Vlog 8", thumbnail: "/D4%20COMBM%202.MP4", type: "video" },
+            { id: "inf9", title: "Lifestyle Vlog 9", thumbnail: "/D4%20COMBM%202.MP4", type: "video" },
+            { id: "inf10", title: "Lifestyle Vlog 10", thumbnail: "/D4%20COMBM%202.MP4", type: "video" },
+            { id: "inf11", title: "Lifestyle Vlog 11", thumbnail: "/D4%20COMBM%202.MP4", type: "video" },
+            { id: "inf12", title: "Lifestyle Vlog 12", thumbnail: "/D4%20COMBM%202.MP4", type: "video" },
+            { id: "inf13", title: "Lifestyle Vlog 13", thumbnail: "/D4%20COMBM%202.MP4", type: "video" },
+            { id: "inf14", title: "Lifestyle Vlog 14", thumbnail: "/D4%20COMBM%202.MP4", type: "video" },
+            { id: "inf15", title: "Lifestyle Vlog 15", thumbnail: "/D4%20COMBM%202.MP4", type: "video" },
+            { id: "inf16", title: "Lifestyle Vlog 16", thumbnail: "/D4%20COMBM%202.MP4", type: "video" },
           ]
         }
       ]
@@ -164,36 +152,13 @@ const WorkSection = () => {
       clients: [
         {
           id: "ind1",
-          name: "Personal Work",
+          name: "Independent Videos",
           projects: [
-            { id: "p23", title: "Short Film", thumbnail: "/src/assets/hero-bg.jpg", type: "video" },
-            { id: "p24", title: "Photography Series", thumbnail: "/src/assets/portrait.jpg", type: "image" },
-            { id: "p25", title: "Experimental Video", thumbnail: "/src/assets/IMG_4581.jpg", type: "video" },
-          ]
-        },
-        {
-          id: "ind2",
-          name: "Art Projects",
-          projects: [
-            { id: "p26", title: "Digital Art", thumbnail: "/src/assets/IMG_4581.jpg", type: "image" },
-            { id: "p27", title: "Time-lapse Creation", thumbnail: "/src/assets/hero-bg.jpg", type: "video" },
-          ]
-        },
-        {
-          id: "ind3",
-          name: "Documentary Work",
-          projects: [
-            { id: "p28", title: "Local Stories", thumbnail: "/src/assets/portrait.jpg", type: "video" },
-            { id: "p29", title: "Portrait Series", thumbnail: "/src/assets/IMG_4581.jpg", type: "image" },
-            { id: "p30", title: "Street Photography", thumbnail: "/src/assets/hero-bg.jpg", type: "image" },
-          ]
-        },
-        {
-          id: "ind4",
-          name: "Music Videos",
-          projects: [
-            { id: "p31", title: "Indie Artist Collab", thumbnail: "/src/assets/portrait.jpg", type: "video" },
-            { id: "p32", title: "Live Performance", thumbnail: "/src/assets/IMG_4581.jpg", type: "video" },
+            { id: "ind1", title: "Independent Film 1", thumbnail: "/D4%20COMBM%202.MP4", type: "video" },
+            { id: "ind2", title: "Independent Film 2", thumbnail: "/D4%20COMBM%202.MP4", type: "video" },
+            { id: "ind3", title: "Independent Film 3", thumbnail: "/D4%20COMBM%202.MP4", type: "video" },
+            { id: "ind4", title: "Independent Film 4", thumbnail: "/D4%20COMBM%202.MP4", type: "video" },
+            { id: "ind5", title: "Independent Film 5", thumbnail: "/D4%20COMBM%202.MP4", type: "video" },
           ]
         }
       ]
