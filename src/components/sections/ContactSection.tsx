@@ -4,40 +4,41 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
-
 const ContactSection = () => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
-    message: "",
+    message: ""
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const { toast } = useToast();
-
+  const {
+    toast
+  } = useToast();
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
+
     // Simulate form submission
     setTimeout(() => {
       toast({
         title: "Message sent!",
-        description: "Thank you for reaching out. I'll get back to you soon.",
+        description: "Thank you for reaching out. I'll get back to you soon."
       });
-      setFormData({ name: "", email: "", message: "" });
+      setFormData({
+        name: "",
+        email: "",
+        message: ""
+      });
       setIsSubmitting(false);
     }, 1000);
   };
-
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value,
+      [e.target.name]: e.target.value
     });
   };
-
-  return (
-    <div className="section-cinematic">
+  return <div className="section-cinematic">
       <div className="container mx-auto px-6">
         <div className="animate-fade-in">
           <div className="text-center mb-16">
@@ -65,7 +66,7 @@ const ContactSection = () => {
                       </div>
                       <div>
                         <h4 className="font-heading text-foreground mb-1">Email</h4>
-                        <p className="font-body text-muted-foreground">hello@yourname.com</p>
+                        <p className="font-body text-muted-foreground">kumarprashdl@gmail.com</p>
                       </div>
                     </div>
 
@@ -110,56 +111,24 @@ const ContactSection = () => {
                     <label htmlFor="name" className="block font-body text-sm font-medium text-foreground mb-2">
                       Name
                     </label>
-                    <Input
-                      id="name"
-                      name="name"
-                      type="text"
-                      required
-                      value={formData.name}
-                      onChange={handleChange}
-                      className="bg-background/50 border-border focus:border-accent"
-                      placeholder="Your full name"
-                    />
+                    <Input id="name" name="name" type="text" required value={formData.name} onChange={handleChange} className="bg-background/50 border-border focus:border-accent" placeholder="Your full name" />
                   </div>
 
                   <div>
                     <label htmlFor="email" className="block font-body text-sm font-medium text-foreground mb-2">
                       Email
                     </label>
-                    <Input
-                      id="email"
-                      name="email"
-                      type="email"
-                      required
-                      value={formData.email}
-                      onChange={handleChange}
-                      className="bg-background/50 border-border focus:border-accent"
-                      placeholder="your.email@example.com"
-                    />
+                    <Input id="email" name="email" type="email" required value={formData.email} onChange={handleChange} className="bg-background/50 border-border focus:border-accent" placeholder="your.email@example.com" />
                   </div>
 
                   <div>
                     <label htmlFor="message" className="block font-body text-sm font-medium text-foreground mb-2">
                       Message
                     </label>
-                    <Textarea
-                      id="message"
-                      name="message"
-                      required
-                      rows={6}
-                      value={formData.message}
-                      onChange={handleChange}
-                      className="bg-background/50 border-border focus:border-accent resize-none"
-                      placeholder="Tell me about your project..."
-                    />
+                    <Textarea id="message" name="message" required rows={6} value={formData.message} onChange={handleChange} className="bg-background/50 border-border focus:border-accent resize-none" placeholder="Tell me about your project..." />
                   </div>
 
-                  <Button
-                    type="submit"
-                    disabled={isSubmitting}
-                    variant="accent"
-                    className="w-full font-body font-medium"
-                  >
+                  <Button type="submit" disabled={isSubmitting} variant="accent" className="w-full font-body font-medium">
                     {isSubmitting ? "Sending..." : "Send Message"}
                   </Button>
                 </form>
@@ -168,8 +137,6 @@ const ContactSection = () => {
           </div>
         </div>
       </div>
-    </div>
-  );
+    </div>;
 };
-
 export default ContactSection;
