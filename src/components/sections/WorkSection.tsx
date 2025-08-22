@@ -63,7 +63,7 @@ const WorkSection = () => {
           name: "Aspen Adventure",
           logo: aspenLogo,
           projects: [
-            { id: "a1", title: "Aspen Video", thumbnail: "/D4%20COMBM%202.MP4", type: "video" },
+            { id: "a1", title: "Aspen Video", thumbnail: "aspen.mp4", type: "video" },
             { id: "a2", title: "Adventure Photo 1", thumbnail: heroImage, type: "image" },
             { id: "a3", title: "Adventure Photo 2", thumbnail: portraitImage, type: "image" },
             { id: "a4", title: "Adventure Photo 3", thumbnail: gymImage, type: "image" },
