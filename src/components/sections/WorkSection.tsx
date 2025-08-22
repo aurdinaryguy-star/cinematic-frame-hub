@@ -2,6 +2,17 @@ import { useState } from "react";
 import { ArrowRight, Users, Video, Briefcase, Play } from "lucide-react";
 import VideoModal from "../VideoModal";
 
+// Import assets properly for Vite build
+import sunstoneLogo from "@/assets/sunstone.png";
+import justWravelLogo from "@/assets/just wravel.png";
+import hbsLogo from "@/assets/hbs.png";
+import volunteerYatraLogo from "@/assets/volunteer yatra .jpg";
+import aspenLogo from "@/assets/aspen.png";
+import tpcLogo from "@/assets/TPC.jpeg";
+import heroImage from "@/assets/hero-bg.jpg";
+import portraitImage from "@/assets/portrait.jpg";
+import gymImage from "@/assets/IMG_4581.jpg";
+
 interface Category {
   id: string;
   title: string;
@@ -40,49 +51,65 @@ const WorkSection = () => {
         {
           id: "sunstone",
           name: "Sunstone",
-          logo: "/src/assets/sunstone.png",
+          logo: sunstoneLogo,
           projects: [
-            { id: "p1", title: "Sunstone Project", thumbnail: "/src/assets/sunstone.png", type: "image" },
+            { id: "s1", title: "Sunstone Video 1", thumbnail: "/D4%20COMBM%202.MP4", type: "video" },
+            { id: "s2", title: "Sunstone Video 2", thumbnail: "/D4%20COMBM%202.MP4", type: "video" },
+            { id: "s3", title: "Sunstone Video 3", thumbnail: "/D4%20COMBM%202.MP4", type: "video" },
           ]
         },
         {
-          id: "justwravel",
-          name: "Just Wravel",
-          logo: "/src/assets/just wravel.png",
+          id: "aspen",
+          name: "Aspen Adventure",
+          logo: aspenLogo,
           projects: [
-            { id: "p2", title: "Just Wravel Project", thumbnail: "/src/assets/just wravel.png", type: "image" },
+            { id: "a1", title: "Aspen Video", thumbnail: "/D4%20COMBM%202.MP4", type: "video" },
+            { id: "a2", title: "Adventure Photo 1", thumbnail: heroImage, type: "image" },
+            { id: "a3", title: "Adventure Photo 2", thumbnail: portraitImage, type: "image" },
+            { id: "a4", title: "Adventure Photo 3", thumbnail: gymImage, type: "image" },
+            { id: "a5", title: "Adventure Photo 4", thumbnail: heroImage, type: "image" },
           ]
         },
         {
           id: "hbs",
           name: "HBS",
-          logo: "/src/assets/hbs.png",
+          logo: hbsLogo,
           projects: [
-            { id: "p3", title: "HBS Project", thumbnail: "/src/assets/hbs.png", type: "image" },
+            { id: "h1", title: "HBS Video 1", thumbnail: "/D4%20COMBM%202.MP4", type: "video" },
+            { id: "h2", title: "HBS Video 2", thumbnail: "/D4%20COMBM%202.MP4", type: "video" },
+            { id: "h3", title: "HBS Video 3", thumbnail: "/D4%20COMBM%202.MP4", type: "video" },
+            { id: "h4", title: "HBS Video 4", thumbnail: "/D4%20COMBM%202.MP4", type: "video" },
+            { id: "h5", title: "HBS Photo 1", thumbnail: portraitImage, type: "image" },
+            { id: "h6", title: "HBS Photo 2", thumbnail: gymImage, type: "image" },
+          ]
+        },
+        {
+          id: "justwravel",
+          name: "Just Wravel",
+          logo: justWravelLogo,
+          projects: [
+            { id: "j1", title: "Just Wravel Video 1", thumbnail: "/D4%20COMBM%202.MP4", type: "video" },
+            { id: "j2", title: "Just Wravel Video 2", thumbnail: "/D4%20COMBM%202.MP4", type: "video" },
+            { id: "j3", title: "Just Wravel Video 3", thumbnail: "/D4%20COMBM%202.MP4", type: "video" },
           ]
         },
         {
           id: "volunteer",
           name: "Volunteer Yatra",
-          logo: "/src/assets/volunteer yatra .jpg",
+          logo: volunteerYatraLogo,
           projects: [
-            { id: "p4", title: "Volunteer Yatra Project", thumbnail: "/src/assets/volunteer yatra .jpg", type: "image" },
-          ]
-        },
-        {
-          id: "aspen",
-          name: "Aspen",
-          logo: "/src/assets/aspen.png",
-          projects: [
-            { id: "p5", title: "Aspen Project", thumbnail: "/src/assets/aspen.png", type: "image" },
+            { id: "v1", title: "Volunteer Video 1", thumbnail: "/D4%20COMBM%202.MP4", type: "video" },
+            { id: "v2", title: "Volunteer Video 2", thumbnail: "/D4%20COMBM%202.MP4", type: "video" },
+            { id: "v3", title: "Volunteer Video 3", thumbnail: "/D4%20COMBM%202.MP4", type: "video" },
+            { id: "v4", title: "Volunteer Video 4", thumbnail: "/D4%20COMBM%202.MP4", type: "video" },
           ]
         },
         {
           id: "tpc",
           name: "The Parent Code (TPC)",
-          logo: "/src/assets/TPC.jpeg",
+          logo: tpcLogo,
           projects: [
-            { id: "p6", title: "The Parent Code Project", thumbnail: "/src/assets/TPC.jpeg", type: "image" },
+            { id: "t1", title: "TPC Project", thumbnail: tpcLogo, type: "image" },
           ]
         }
       ]
@@ -310,12 +337,23 @@ const WorkSection = () => {
                   className="group cursor-pointer hover-lift transition-smooth"
                 >
                   <div className="relative rounded-lg overflow-hidden bg-muted/10 border border-border group-hover:border-accent/50 transition-smooth">
-                    <div className="aspect-square sm:aspect-video">
-                      <img
-                        src={project.thumbnail}
-                        alt={project.title}
-                        className="w-full h-full object-cover group-hover:scale-105 transition-smooth"
-                      />
+                    <div className={`${project.type === "video" ? "aspect-video" : "aspect-square"} relative`}>
+                      {project.type === "video" ? (
+                        <video
+                          className="w-full h-full object-cover group-hover:scale-105 transition-smooth"
+                          poster={project.thumbnail}
+                          muted
+                          preload="metadata"
+                        >
+                          <source src={project.thumbnail} type="video/mp4" />
+                        </video>
+                      ) : (
+                        <img
+                          src={project.thumbnail}
+                          alt={project.title}
+                          className="w-full h-full object-cover group-hover:scale-105 transition-smooth"
+                        />
+                      )}
                       {project.type === "video" && (
                         <div className="absolute inset-0 flex items-center justify-center bg-black/20 group-hover:bg-black/30 transition-smooth">
                           <div className="w-16 h-16 rounded-full bg-accent/90 flex items-center justify-center group-hover:bg-accent transition-smooth">
