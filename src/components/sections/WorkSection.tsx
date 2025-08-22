@@ -39,8 +39,8 @@ const WorkSection = () => {
       clients: [
         {
           id: "client1",
-          name: "Brand Studio",
-          logo: "/src/assets/IMG_4581.jpg",
+          name: "sunstone",
+          logo: "/src/assets/sunstone.png",
           projects: [
             { id: "p1", title: "Campaign 2024", thumbnail: "/src/assets/IMG_4581.jpg", type: "video" },
             { id: "p2", title: "Product Launch", thumbnail: "/src/assets/hero-bg.jpg", type: "image" },
