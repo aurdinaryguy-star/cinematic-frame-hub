@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { ArrowRight, Users, Video, Briefcase, Play } from "lucide-react";
 import VideoModal from "../VideoModal";
+import ImageLightbox from "../ImageLightbox";
 
 // Import assets properly for Vite build
 import sunstoneLogo from "@/assets/sunstone.png";
@@ -32,14 +33,19 @@ interface Project {
   id: string;
   title: string;
   thumbnail: string;
-  type: "image" | "video";
+  type: "image" | "video" | "youtube" | "gallery";
+  embedId?: string;
+  images?: string[];
 }
 
 const WorkSection = () => {
   const [currentView, setCurrentView] = useState<"categories" | "clients" | "projects">("categories");
   const [selectedCategory, setSelectedCategory] = useState<Category | null>(null);
   const [selectedClient, setSelectedClient] = useState<Client | null>(null);
-  const [selectedVideo, setSelectedVideo] = useState<{ src: string; title: string } | null>(null);
+  const [selectedVideo, setSelectedVideo] = useState<{ src: string; title: string; embedId?: string } | null>(null);
+  const [lightboxImages, setLightboxImages] = useState<string[]>([]);
+  const [lightboxIndex, setLightboxIndex] = useState(0);
+  const [isLightboxOpen, setIsLightboxOpen] = useState(false);
 
   const categories: Category[] = [
     {
@@ -53,9 +59,8 @@ const WorkSection = () => {
           name: "Sunstone",
           logo: sunstoneLogo,
           projects: [
-            { id: "s1", title: "Sunstone Video 1", thumbnail: "/D4%20COMBM%202.MP4", type: "video" },
-            { id: "s2", title: "Sunstone Video 2", thumbnail: "/D4%20COMBM%202.MP4", type: "video" },
-            { id: "s3", title: "Sunstone Video 3", thumbnail: "/D4%20COMBM%202.MP4", type: "video" },
+            { id: "s1", title: "Sunstone – Scholarships", thumbnail: "", type: "youtube", embedId: "f3v0xVZYjB8" },
+            { id: "s2", title: "Sunstone – Admit Cards", thumbnail: "", type: "youtube", embedId: "3u3TFnXCX7M" },
           ]
         },
         {
@@ -63,11 +68,8 @@ const WorkSection = () => {
           name: "Aspen Adventure",
           logo: aspenLogo,
           projects: [
-            { id: "a1", title: "Aspen Video", thumbnail: "aspen.mp4", type: "video" },
-            { id: "a2", title: "Adventure Photo 1", thumbnail: heroImage, type: "image" },
-            { id: "a3", title: "Adventure Photo 2", thumbnail: portraitImage, type: "image" },
-            { id: "a4", title: "Adventure Photo 3", thumbnail: gymImage, type: "image" },
-            { id: "a5", title: "Adventure Photo 4", thumbnail: heroImage, type: "image" },
+            { id: "a1", title: "Aspen Video", thumbnail: "/assets/aspen.mp4", type: "video" },
+            { id: "a2", title: "Aspen Photos", thumbnail: heroImage, type: "gallery", images: [heroImage, portraitImage, gymImage] },
           ]
         },
         {
@@ -75,12 +77,11 @@ const WorkSection = () => {
           name: "HBS",
           logo: hbsLogo,
           projects: [
-            { id: "h1", title: "HBS Video 1", thumbnail: "/HBS1.mp4", type: "video" },
-            { id: "h2", title: "HBS Video 2", thumbnail: "/HBS2.MP4", type: "video" },
-            { id: "h3", title: "HBS Video 3", thumbnail: "/HBS3.mp4", type: "video" },
-            { id: "h4", title: "HBS Video 4", thumbnail: "/HBS4.mp4", type: "video" },
-            { id: "h5", title: "HBS Photo 1", thumbnail: portraitImage, type: "image" },
-            { id: "h6", title: "HBS Photo 2", thumbnail: gymImage, type: "image" },
+            { id: "h1", title: "HBS Video 1", thumbnail: "/assets/hbs1.mp4", type: "video" },
+            { id: "h2", title: "HBS Video 2", thumbnail: "/assets/hbs2.mp4", type: "video" },
+            { id: "h3", title: "HBS Video 3", thumbnail: "/assets/hbs3.mp4", type: "video" },
+            { id: "h4", title: "HBS Video 4", thumbnail: "/assets/hbs4.mp4", type: "video" },
+            { id: "h5", title: "HBS Photos", thumbnail: portraitImage, type: "gallery", images: [portraitImage, gymImage] },
           ]
         },
         {
@@ -88,9 +89,9 @@ const WorkSection = () => {
           name: "Just Wravel",
           logo: justWravelLogo,
           projects: [
-            { id: "j1", title: "Just Wravel Video 1", thumbnail: "/JUSTWRAVEL1.MP4", type: "video" },
-            { id: "j2", title: "Just Wravel Video 2", thumbnail: "/JUSTWRAVEL2.MP4", type: "video" },
-            { id: "j3", title: "Just Wravel Video 3", thumbnail: "/JUSTWRAVEL3.mov", type: "video" },
+            { id: "j1", title: "Just Wravel Video 1", thumbnail: "/assets/justwravel1.mp4", type: "video" },
+            { id: "j2", title: "Just Wravel Video 2", thumbnail: "/assets/justwravel2.mp4", type: "video" },
+            { id: "j3", title: "Just Wravel Video 3", thumbnail: "/assets/justwravel3.mov", type: "video" },
           ]
         },
         {
@@ -98,10 +99,10 @@ const WorkSection = () => {
           name: "Volunteer Yatra",
           logo: volunteerYatraLogo,
           projects: [
-            { id: "v1", title: "Volunteer Video 1", thumbnail: "/VY1.MP4", type: "video" },
-            { id: "v2", title: "Volunteer Video 2", thumbnail: "/VY2.MP4", type: "video" },
-            { id: "v3", title: "Volunteer Video 3", thumbnail: "/VY3.MP4", type: "video" },
-            { id: "v4", title: "Volunteer Video 4", thumbnail: "/D4%20COMBM%202.MP4", type: "video" },
+            { id: "v1", title: "Volunteer Video 1", thumbnail: "/assets/vy1.mp4", type: "video" },
+            { id: "v2", title: "Volunteer Video 2", thumbnail: "/assets/vy2.mp4", type: "video" },
+            { id: "v3", title: "Volunteer Video 3", thumbnail: "/assets/vy3.mp4", type: "video" },
+            { id: "v4", title: "Volunteer Yatra Photos", thumbnail: volunteerYatraLogo, type: "gallery", images: [volunteerYatraLogo, heroImage] },
           ]
         },
         {
@@ -109,7 +110,8 @@ const WorkSection = () => {
           name: "The Parent Code (TPC)",
           logo: tpcLogo,
           projects: [
-            { id: "t1", title: "TPC Project", thumbnail: tpcLogo, type: "image" },
+            { id: "t1", title: "TPC – Newborn Care", thumbnail: "", type: "youtube", embedId: "jImEMU23RPQ" },
+            { id: "t2", title: "TPC – Parenting Video 2", thumbnail: "", type: "youtube", embedId: "lWHWofC8Wys" },
           ]
         }
       ]
@@ -122,24 +124,22 @@ const WorkSection = () => {
       clients: [
         {
           id: "inf1",
-          name: "Influencer Videos",
+          name: "Influencer Content",
           projects: [
-            { id: "inf1", title: "Lifestyle Vlog 1", thumbnail: "/D4%20COMBM%202.MP4", type: "video" },
-            { id: "inf2", title: "Lifestyle Vlog 2", thumbnail: "/D4%20COMBM%202.MP4", type: "video" },
-            { id: "inf3", title: "Lifestyle Vlog 3", thumbnail: "/D4%20COMBM%202.MP4", type: "video" },
-            { id: "inf4", title: "Lifestyle Vlog 4", thumbnail: "/D4%20COMBM%202.MP4", type: "video" },
-            { id: "inf5", title: "Lifestyle Vlog 5", thumbnail: "/D4%20COMBM%202.MP4", type: "video" },
-            { id: "inf6", title: "Lifestyle Vlog 6", thumbnail: "/D4%20COMBM%202.MP4", type: "video" },
-            { id: "inf7", title: "Lifestyle Vlog 7", thumbnail: "/D4%20COMBM%202.MP4", type: "video" },
-            { id: "inf8", title: "Lifestyle Vlog 8", thumbnail: "/D4%20COMBM%202.MP4", type: "video" },
-            { id: "inf9", title: "Lifestyle Vlog 9", thumbnail: "/D4%20COMBM%202.MP4", type: "video" },
-            { id: "inf10", title: "Lifestyle Vlog 10", thumbnail: "/D4%20COMBM%202.MP4", type: "video" },
-            { id: "inf11", title: "Lifestyle Vlog 11", thumbnail: "/D4%20COMBM%202.MP4", type: "video" },
-            { id: "inf12", title: "Lifestyle Vlog 12", thumbnail: "/D4%20COMBM%202.MP4", type: "video" },
-            { id: "inf13", title: "Lifestyle Vlog 13", thumbnail: "/D4%20COMBM%202.MP4", type: "video" },
-            { id: "inf14", title: "Lifestyle Vlog 14", thumbnail: "/D4%20COMBM%202.MP4", type: "video" },
-            { id: "inf15", title: "Lifestyle Vlog 15", thumbnail: "/D4%20COMBM%202.MP4", type: "video" },
-            { id: "inf16", title: "Lifestyle Vlog 16", thumbnail: "/D4%20COMBM%202.MP4", type: "video" },
+            { id: "ind1", title: "IND1", thumbnail: "/assets/IND1.mp4", type: "video" },
+            { id: "ind2", title: "IND2", thumbnail: "/assets/IND2.mp4", type: "video" },
+            { id: "ind3", title: "IND3", thumbnail: "/assets/IND3.mp4", type: "video" },
+            { id: "ind4", title: "IND4", thumbnail: "/assets/IND4.mp4", type: "video" },
+            { id: "ind5", title: "IND5", thumbnail: "/assets/IND5.mp4", type: "video" },
+            { id: "ind6", title: "IND6", thumbnail: "/assets/IND6.mp4", type: "video" },
+            { id: "ind7", title: "IND7", thumbnail: "/assets/IND7.mp4", type: "video" },
+            { id: "ind8", title: "IND8", thumbnail: "/assets/IND8.mp4", type: "video" },
+            { id: "ind9", title: "IND9", thumbnail: "/assets/IND9.mp4", type: "video" },
+            { id: "ind10", title: "IND10", thumbnail: "/assets/IND10.mp4", type: "video" },
+            { id: "ind11", title: "IND11", thumbnail: "/assets/IND11.mp4", type: "video" },
+            { id: "ind12", title: "IND12", thumbnail: "/assets/IND12.mp4", type: "video" },
+            { id: "ind13", title: "IND13", thumbnail: "/assets/IND13.mp4", type: "video" },
+            { id: "ind14", title: "IND14", thumbnail: "/assets/IND14.mp4", type: "video" },
           ]
         }
       ]
@@ -151,14 +151,16 @@ const WorkSection = () => {
       icon: Video,
       clients: [
         {
-          id: "ind1",
-          name: "Independent Videos",
+          id: "independent1",
+          name: "Independent Projects",
           projects: [
-            { id: "ind1", title: "Independent Film 1", thumbnail: "/D4%20COMBM%202.MP4", type: "video" },
-            { id: "ind2", title: "Independent Film 2", thumbnail: "/D4%20COMBM%202.MP4", type: "video" },
-            { id: "ind3", title: "Independent Film 3", thumbnail: "/D4%20COMBM%202.MP4", type: "video" },
-            { id: "ind4", title: "Independent Film 4", thumbnail: "/D4%20COMBM%202.MP4", type: "video" },
-            { id: "ind5", title: "Independent Film 5", thumbnail: "/D4%20COMBM%202.MP4", type: "video" },
+            { id: "independent1", title: "INDEPENDENT1", thumbnail: "/assets/INDEPENDENT1.mp4", type: "video" },
+            { id: "independent2", title: "INDEPENDENT2", thumbnail: "/assets/INDEPENDENT2.mp4", type: "video" },
+            { id: "independent3", title: "INDEPENDENT3", thumbnail: "/assets/INDEPENDENT3.mp4", type: "video" },
+            { id: "independent4", title: "INDEPENDENT4", thumbnail: "/assets/INDEPENDENT4.mp4", type: "video" },
+            { id: "independent5", title: "INDEPENDENT5", thumbnail: "/assets/INDEPENDENT5.mp4", type: "video" },
+            { id: "independent6", title: "INDEPENDENT6", thumbnail: "/assets/INDEPENDENT6.mp4", type: "video" },
+            { id: "independent7", title: "INDEPENDENT7", thumbnail: "/assets/INDEPENDENT7.mp4", type: "video" },
           ]
         }
       ]
@@ -188,7 +190,19 @@ const WorkSection = () => {
   const handleProjectClick = (project: Project) => {
     if (project.type === "video") {
       setSelectedVideo({ src: project.thumbnail, title: project.title });
+    } else if (project.type === "youtube") {
+      setSelectedVideo({ src: "", title: project.title, embedId: project.embedId });
+    } else if (project.type === "gallery" && project.images) {
+      setLightboxImages(project.images);
+      setLightboxIndex(0);
+      setIsLightboxOpen(true);
     }
+  };
+
+  const handleImageClick = (images: string[], index: number) => {
+    setLightboxImages(images);
+    setLightboxIndex(index);
+    setIsLightboxOpen(true);
   };
 
   return (
@@ -296,44 +310,77 @@ const WorkSection = () => {
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
               {selectedClient.projects.map((project) => (
-                <div
-                  key={project.id}
-                  onClick={() => handleProjectClick(project)}
-                  className="group cursor-pointer hover-lift transition-smooth"
-                >
-                  <div className="relative rounded-lg overflow-hidden bg-muted/10 border border-border group-hover:border-accent/50 transition-smooth">
-                    <div className={`${project.type === "video" ? "aspect-video" : "aspect-square"} relative`}>
-                      {project.type === "video" ? (
-                        <video
-                          className="w-full h-full object-cover group-hover:scale-105 transition-smooth"
-                          poster={project.thumbnail}
-                          muted
-                          preload="metadata"
-                        >
-                          <source src={project.thumbnail} type="video/mp4" />
-                        </video>
-                      ) : (
-                        <img
-                          src={project.thumbnail}
-                          alt={project.title}
-                          className="w-full h-full object-cover group-hover:scale-105 transition-smooth"
-                        />
-                      )}
-                      {project.type === "video" && (
-                        <div className="absolute inset-0 flex items-center justify-center bg-black/20 group-hover:bg-black/30 transition-smooth">
-                          <div className="w-16 h-16 rounded-full bg-accent/90 flex items-center justify-center group-hover:bg-accent transition-smooth">
-                            <Play className="w-8 h-8 text-white ml-1" />
+                <div key={project.id}>
+                  {project.type === "gallery" ? (
+                    <div>
+                      <h3 className="font-heading text-lg text-foreground mb-4">{project.title}</h3>
+                      <div className="grid grid-cols-2 gap-4">
+                        {project.images?.map((image, index) => (
+                          <div
+                            key={index}
+                            onClick={() => handleImageClick(project.images!, index)}
+                            className="group cursor-pointer hover-lift transition-smooth"
+                          >
+                            <div className="relative rounded-lg overflow-hidden bg-muted/10 border border-border group-hover:border-accent/50 transition-smooth">
+                              <div className="aspect-square relative">
+                                <img
+                                  src={image}
+                                  alt={`${project.title} ${index + 1}`}
+                                  className="w-full h-full object-cover group-hover:scale-105 transition-smooth"
+                                />
+                              </div>
+                            </div>
                           </div>
-                        </div>
-                      )}
+                        ))}
+                      </div>
                     </div>
-                  </div>
-                  <h3 className="font-heading text-lg text-foreground mt-4 group-hover:text-accent transition-smooth">
-                    {project.title}
-                  </h3>
-                  <p className="text-sm text-muted-foreground capitalize">
-                    {project.type}
-                  </p>
+                  ) : (
+                    <div
+                      onClick={() => handleProjectClick(project)}
+                      className="group cursor-pointer hover-lift transition-smooth"
+                    >
+                      <div className="relative rounded-lg overflow-hidden bg-muted/10 border border-border group-hover:border-accent/50 transition-smooth">
+                        <div className={`${project.type === "video" || project.type === "youtube" ? "aspect-video" : "aspect-square"} relative`}>
+                          {project.type === "video" ? (
+                            <video
+                              className="w-full h-full object-cover group-hover:scale-105 transition-smooth"
+                              poster={project.thumbnail}
+                              muted
+                              preload="metadata"
+                            >
+                              <source src={project.thumbnail} type="video/mp4" />
+                            </video>
+                          ) : project.type === "youtube" ? (
+                            <div className="w-full h-full bg-muted/20 flex items-center justify-center">
+                              <div className="text-center">
+                                <Play className="w-16 h-16 text-accent mx-auto mb-2" />
+                                <p className="text-sm text-muted-foreground">YouTube Video</p>
+                              </div>
+                            </div>
+                          ) : (
+                            <img
+                              src={project.thumbnail}
+                              alt={project.title}
+                              className="w-full h-full object-cover group-hover:scale-105 transition-smooth"
+                            />
+                          )}
+                          {(project.type === "video" || project.type === "youtube") && (
+                            <div className="absolute inset-0 flex items-center justify-center bg-black/20 group-hover:bg-black/30 transition-smooth">
+                              <div className="w-16 h-16 rounded-full bg-accent/90 flex items-center justify-center group-hover:bg-accent transition-smooth">
+                                <Play className="w-8 h-8 text-white ml-1" />
+                              </div>
+                            </div>
+                          )}
+                        </div>
+                      </div>
+                      <h3 className="font-heading text-lg text-foreground mt-4 group-hover:text-accent transition-smooth">
+                        {project.title}
+                      </h3>
+                      <p className="text-sm text-muted-foreground capitalize">
+                        {project.type === "youtube" ? "YouTube Video" : project.type}
+                      </p>
+                    </div>
+                  )}
                 </div>
               ))}
             </div>
@@ -347,6 +394,15 @@ const WorkSection = () => {
         onClose={() => setSelectedVideo(null)}
         videoSrc={selectedVideo?.src || ""}
         title={selectedVideo?.title || ""}
+        embedId={selectedVideo?.embedId}
+      />
+
+      {/* Image Lightbox */}
+      <ImageLightbox
+        images={lightboxImages}
+        currentIndex={lightboxIndex}
+        isOpen={isLightboxOpen}
+        onClose={() => setIsLightboxOpen(false)}
       />
     </div>
   );

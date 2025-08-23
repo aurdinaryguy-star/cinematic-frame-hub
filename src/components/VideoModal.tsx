@@ -6,9 +6,10 @@ interface VideoModalProps {
   onClose: () => void;
   videoSrc: string;
   title: string;
+  embedId?: string;
 }
 
-const VideoModal = ({ isOpen, onClose, videoSrc, title }: VideoModalProps) => {
+const VideoModal = ({ isOpen, onClose, videoSrc, title, embedId }: VideoModalProps) => {
   if (!isOpen) return null;
 
   return (
@@ -35,15 +36,26 @@ const VideoModal = ({ isOpen, onClose, videoSrc, title }: VideoModalProps) => {
           
           {/* Video */}
           <div className="aspect-video">
-            <video
-              className="w-full h-full"
-              controls
-              autoPlay
-              preload="metadata"
-            >
-              <source src={videoSrc} type="video/mp4" />
-              Your browser does not support the video tag.
-            </video>
+            {embedId ? (
+              <iframe
+                className="w-full h-full"
+                src={`https://www.youtube.com/embed/${embedId}?autoplay=1`}
+                title={title}
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              />
+            ) : (
+              <video
+                className="w-full h-full"
+                controls
+                autoPlay
+                preload="metadata"
+              >
+                <source src={videoSrc} type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+            )}
           </div>
         </div>
       </div>
