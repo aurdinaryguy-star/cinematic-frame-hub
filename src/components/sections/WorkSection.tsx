@@ -68,8 +68,14 @@ const WorkSection = () => {
           name: "Aspen Adventure",
           logo: aspenLogo,
           projects: [
-            { id: "a1", title: "Aspen Video", thumbnail: "/assets/aspen.mp4", type: "video" },
-            { id: "a2", title: "Aspen Photos", thumbnail: heroImage, type: "gallery", images: [heroImage, portraitImage, gymImage] },
+            { id: "a1", title: "Aspen Video", thumbnail: "/aspen.mp4", type: "video" },
+            { 
+              id: "a2", 
+              title: "Aspen Photos", 
+              thumbnail: heroImage, 
+              type: "gallery", 
+              images: Array.from({length: 9}, (_, i) => `/aspen photos${i + 1}.jpg`)
+            },
           ]
         },
         {
@@ -77,11 +83,17 @@ const WorkSection = () => {
           name: "HBS",
           logo: hbsLogo,
           projects: [
-            { id: "h1", title: "HBS Video 1", thumbnail: "/assets/hbs1.mp4", type: "video" },
-            { id: "h2", title: "HBS Video 2", thumbnail: "/assets/hbs2.mp4", type: "video" },
-            { id: "h3", title: "HBS Video 3", thumbnail: "/assets/hbs3.mp4", type: "video" },
-            { id: "h4", title: "HBS Video 4", thumbnail: "/assets/hbs4.mp4", type: "video" },
-            { id: "h5", title: "HBS Photos", thumbnail: portraitImage, type: "gallery", images: [portraitImage, gymImage] },
+            { id: "h1", title: "HBS Video 1", thumbnail: "/HBS1.mp4", type: "video" },
+            { id: "h2", title: "HBS Video 2", thumbnail: "/HBS2.mp4", type: "video" },
+            { id: "h3", title: "HBS Video 3", thumbnail: "/HBS3.mp4", type: "video" },
+            { id: "h4", title: "HBS Video 4", thumbnail: "/HBS4.mp4", type: "video" },
+            { 
+              id: "h5", 
+              title: "HBS Photos", 
+              thumbnail: portraitImage, 
+              type: "gallery", 
+              images: Array.from({length: 24}, (_, i) => `/hbs photos${i + 1}.jpg`)
+            },
           ]
         },
         {
@@ -89,9 +101,9 @@ const WorkSection = () => {
           name: "Just Wravel",
           logo: justWravelLogo,
           projects: [
-            { id: "j1", title: "Just Wravel Video 1", thumbnail: "/assets/justwravel1.mp4", type: "video" },
-            { id: "j2", title: "Just Wravel Video 2", thumbnail: "/assets/justwravel2.mp4", type: "video" },
-            { id: "j3", title: "Just Wravel Video 3", thumbnail: "/assets/justwravel3.mov", type: "video" },
+            { id: "j1", title: "Just Wravel Video 1", thumbnail: "/JUSTWRAVEL1.MP4", type: "video" },
+            { id: "j2", title: "Just Wravel Video 2", thumbnail: "/JUSTWRAVEL2.mp4", type: "video" },
+            { id: "j3", title: "Just Wravel Video 3", thumbnail: "/JUSTWRAVEL3.mov", type: "video" },
           ]
         },
         {
@@ -99,10 +111,16 @@ const WorkSection = () => {
           name: "Volunteer Yatra",
           logo: volunteerYatraLogo,
           projects: [
-            { id: "v1", title: "Volunteer Video 1", thumbnail: "/assets/vy1.mp4", type: "video" },
-            { id: "v2", title: "Volunteer Video 2", thumbnail: "/assets/vy2.mp4", type: "video" },
-            { id: "v3", title: "Volunteer Video 3", thumbnail: "/assets/vy3.mp4", type: "video" },
-            { id: "v4", title: "Volunteer Yatra Photos", thumbnail: volunteerYatraLogo, type: "gallery", images: [volunteerYatraLogo, heroImage] },
+            { id: "v1", title: "Volunteer Video 1", thumbnail: "/VY1.mp4", type: "video" },
+            { id: "v2", title: "Volunteer Video 2", thumbnail: "/VY2.mp4", type: "video" },
+            { id: "v3", title: "Volunteer Video 3", thumbnail: "/VY3.mp4", type: "video" },
+            { 
+              id: "v4", 
+              title: "Volunteer Yatra Photos", 
+              thumbnail: volunteerYatraLogo, 
+              type: "gallery", 
+              images: Array.from({length: 12}, (_, i) => `/volunteer yatra photos${i + 1}.jpg`)
+            },
           ]
         },
         {
@@ -123,23 +141,23 @@ const WorkSection = () => {
       icon: Users,
       clients: [
         {
-          id: "inf1",
-          name: "Influencer Content",
+          id: "influencer",
+          name: "",
           projects: [
-            { id: "ind1", title: "IND1", thumbnail: "/assets/IND1.mp4", type: "video" },
-            { id: "ind2", title: "IND2", thumbnail: "/assets/IND2.mp4", type: "video" },
-            { id: "ind3", title: "IND3", thumbnail: "/assets/IND3.mp4", type: "video" },
-            { id: "ind4", title: "IND4", thumbnail: "/assets/IND4.mp4", type: "video" },
-            { id: "ind5", title: "IND5", thumbnail: "/assets/IND5.mp4", type: "video" },
-            { id: "ind6", title: "IND6", thumbnail: "/assets/IND6.mp4", type: "video" },
-            { id: "ind7", title: "IND7", thumbnail: "/assets/IND7.mp4", type: "video" },
-            { id: "ind8", title: "IND8", thumbnail: "/assets/IND8.mp4", type: "video" },
-            { id: "ind9", title: "IND9", thumbnail: "/assets/IND9.mp4", type: "video" },
-            { id: "ind10", title: "IND10", thumbnail: "/assets/IND10.mp4", type: "video" },
-            { id: "ind11", title: "IND11", thumbnail: "/assets/IND11.mp4", type: "video" },
-            { id: "ind12", title: "IND12", thumbnail: "/assets/IND12.mp4", type: "video" },
-            { id: "ind13", title: "IND13", thumbnail: "/assets/IND13.mp4", type: "video" },
-            { id: "ind14", title: "IND14", thumbnail: "/assets/IND14.mp4", type: "video" },
+            { id: "ind1", title: "IND1", thumbnail: "/IND1.mp4", type: "video" },
+            { id: "ind2", title: "IND2", thumbnail: "/IND2.mp4", type: "video" },
+            { id: "ind3", title: "IND3", thumbnail: "/IND3.mp4", type: "video" },
+            { id: "ind4", title: "IND4", thumbnail: "/IND4.mp4", type: "video" },
+            { id: "ind5", title: "IND5", thumbnail: "/IND5.mp4", type: "video" },
+            { id: "ind6", title: "IND6", thumbnail: "/IND6.mp4", type: "video" },
+            { id: "ind7", title: "IND7", thumbnail: "/IND7.mp4", type: "video" },
+            { id: "ind8", title: "IND8", thumbnail: "/IND8.mp4", type: "video" },
+            { id: "ind9", title: "IND9", thumbnail: "/IND9.mp4", type: "video" },
+            { id: "ind10", title: "IND10", thumbnail: "/IND10.mp4", type: "video" },
+            { id: "ind11", title: "IND11", thumbnail: "/IND11.mp4", type: "video" },
+            { id: "ind12", title: "IND12", thumbnail: "/IND12.mp4", type: "video" },
+            { id: "ind13", title: "IND13", thumbnail: "/IND13.mp4", type: "video" },
+            { id: "ind14", title: "IND14", thumbnail: "/IND14.mp4", type: "video" },
           ]
         }
       ]
@@ -151,16 +169,16 @@ const WorkSection = () => {
       icon: Video,
       clients: [
         {
-          id: "independent1",
-          name: "Independent Projects",
+          id: "independent",
+          name: "",
           projects: [
-            { id: "independent1", title: "INDEPENDENT1", thumbnail: "/assets/INDEPENDENT1.mp4", type: "video" },
-            { id: "independent2", title: "INDEPENDENT2", thumbnail: "/assets/INDEPENDENT2.mp4", type: "video" },
-            { id: "independent3", title: "INDEPENDENT3", thumbnail: "/assets/INDEPENDENT3.mp4", type: "video" },
-            { id: "independent4", title: "INDEPENDENT4", thumbnail: "/assets/INDEPENDENT4.mp4", type: "video" },
-            { id: "independent5", title: "INDEPENDENT5", thumbnail: "/assets/INDEPENDENT5.mp4", type: "video" },
-            { id: "independent6", title: "INDEPENDENT6", thumbnail: "/assets/INDEPENDENT6.mp4", type: "video" },
-            { id: "independent7", title: "INDEPENDENT7", thumbnail: "/assets/INDEPENDENT7.mp4", type: "video" },
+            { id: "independent1", title: "INDEPENDENT1", thumbnail: "/INDEPENDENT1.mp4", type: "video" },
+            { id: "independent2", title: "INDEPENDENT2", thumbnail: "/INDEPENDENT2.mp4", type: "video" },
+            { id: "independent3", title: "INDEPENDENT3", thumbnail: "/INDEPENDENT3.mp4", type: "video" },
+            { id: "independent4", title: "INDEPENDENT4", thumbnail: "/INDEPENDENT4.mp4", type: "video" },
+            { id: "independent5", title: "INDEPENDENT5", thumbnail: "/INDEPENDENT5.mp4", type: "video" },
+            { id: "independent6", title: "INDEPENDENT6", thumbnail: "/INDEPENDENT6.mp4", type: "video" },
+            { id: "independent7", title: "INDEPENDENT7", thumbnail: "/INDEPENDENT7.mp4", type: "video" },
           ]
         }
       ]
@@ -263,33 +281,76 @@ const WorkSection = () => {
               </h2>
             </div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-4xl mx-auto">
-              {selectedCategory.clients.map((client) => (
-                <div
-                  key={client.id}
-                  onClick={() => handleClientSelect(client)}
-                  className="card-gradient rounded-lg p-6 cursor-pointer hover-lift transition-smooth group"
-                >
-                  <div className="text-center">
-                    <div className="w-20 h-20 rounded-lg bg-muted/10 border border-border flex items-center justify-center mx-auto mb-4 group-hover:bg-accent/10 transition-smooth">
-                      {client.logo ? (
-                        <img src={client.logo} alt={client.name} className="w-full h-full object-contain" />
-                      ) : (
-                        <span className="text-2xl font-heading text-muted-foreground">
-                          {client.name.charAt(0)}
-                        </span>
-                      )}
+            {/* For Influencer and Independent, skip client selection and go directly to projects */}
+            {(selectedCategory.id === "influencer" || selectedCategory.id === "independent") ? (
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+                {selectedCategory.clients[0].projects.map((project) => (
+                  <div key={project.id}>
+                    <div
+                      onClick={() => handleProjectClick(project)}
+                      className="group cursor-pointer hover-lift transition-smooth"
+                    >
+                      <div className="relative rounded-lg overflow-hidden bg-muted/10 border border-border group-hover:border-accent/50 transition-smooth">
+                        <div className="aspect-video relative">
+                          <video
+                            className="w-full h-full object-cover group-hover:scale-105 transition-smooth"
+                            poster={project.thumbnail}
+                            muted
+                            preload="metadata"
+                            controls
+                          >
+                            <source 
+                              src={project.thumbnail} 
+                              type="video/mp4"
+                            />
+                            Your browser does not support the video tag.
+                          </video>
+                          <div className="absolute inset-0 flex items-center justify-center bg-black/20 group-hover:bg-black/30 transition-smooth">
+                            <div className="w-16 h-16 rounded-full bg-accent/90 flex items-center justify-center group-hover:bg-accent transition-smooth">
+                              <Play className="w-8 h-8 text-white ml-1" />
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <h3 className="font-heading text-lg text-foreground mt-4 group-hover:text-accent transition-smooth">
+                        {project.title}
+                      </h3>
+                      <p className="text-sm text-muted-foreground capitalize">
+                        {project.type}
+                      </p>
                     </div>
-                    <h3 className="font-heading text-xl text-foreground">
-                      {client.name}
-                    </h3>
-                    <p className="text-sm text-muted-foreground mt-2">
-                      {client.projects.length} projects
-                    </p>
                   </div>
-                </div>
-              ))}
-            </div>
+                ))}
+              </div>
+            ) : (
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-4xl mx-auto">
+                {selectedCategory.clients.map((client) => (
+                  <div
+                    key={client.id}
+                    onClick={() => handleClientSelect(client)}
+                    className="card-gradient rounded-lg p-6 cursor-pointer hover-lift transition-smooth group"
+                  >
+                    <div className="text-center">
+                      <div className="w-20 h-20 rounded-lg bg-muted/10 border border-border flex items-center justify-center mx-auto mb-4 group-hover:bg-accent/10 transition-smooth">
+                        {client.logo ? (
+                          <img src={client.logo} alt={client.name} className="w-full h-full object-contain loading-lazy" />
+                        ) : (
+                          <span className="text-2xl font-heading text-muted-foreground">
+                            {client.name.charAt(0)}
+                          </span>
+                        )}
+                      </div>
+                      <h3 className="font-heading text-xl text-foreground">
+                        {client.name}
+                      </h3>
+                      <p className="text-sm text-muted-foreground mt-2">
+                        {client.projects.length} projects
+                      </p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            )}
           </div>
         )}
 
@@ -323,11 +384,12 @@ const WorkSection = () => {
                           >
                             <div className="relative rounded-lg overflow-hidden bg-muted/10 border border-border group-hover:border-accent/50 transition-smooth">
                               <div className="aspect-square relative">
-                                <img
-                                  src={image}
-                                  alt={`${project.title} ${index + 1}`}
-                                  className="w-full h-full object-cover group-hover:scale-105 transition-smooth"
-                                />
+                              <img
+                                src={image}
+                                alt={`${project.title} ${index + 1}`}
+                                className="w-full h-full object-cover group-hover:scale-105 transition-smooth"
+                                loading="lazy"
+                              />
                               </div>
                             </div>
                           </div>
@@ -347,8 +409,13 @@ const WorkSection = () => {
                               poster={project.thumbnail}
                               muted
                               preload="metadata"
+                              controls
                             >
-                              <source src={project.thumbnail} type="video/mp4" />
+                              <source 
+                                src={project.thumbnail} 
+                                type={project.thumbnail.endsWith('.mov') ? 'video/quicktime' : 'video/mp4'} 
+                              />
+                              Your browser does not support the video tag.
                             </video>
                           ) : project.type === "youtube" ? (
                             <div className="w-full h-full bg-muted/20 flex items-center justify-center">
