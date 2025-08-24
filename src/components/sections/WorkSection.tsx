@@ -74,7 +74,7 @@ const WorkSection = () => {
               title: "Aspen Photos", 
               thumbnail: heroImage, 
               type: "gallery", 
-              images: Array.from({length: 9}, (_, i) => `/aspen photos${i + 1}.jpg`)
+              images: Array.from({length: 9}, (_, i) => `/assets/aspen photos${i + 1}.jpg`)
             },
           ]
         },
@@ -92,7 +92,7 @@ const WorkSection = () => {
               title: "HBS Photos", 
               thumbnail: portraitImage, 
               type: "gallery", 
-              images: Array.from({length: 24}, (_, i) => `/hbs photos${i + 1}.jpg`)
+              images: Array.from({length: 24}, (_, i) => `/assets/hbs photos${i + 1}.jpg`)
             },
           ]
         },
@@ -119,7 +119,7 @@ const WorkSection = () => {
               title: "Volunteer Yatra Photos", 
               thumbnail: volunteerYatraLogo, 
               type: "gallery", 
-              images: Array.from({length: 12}, (_, i) => `/volunteer yatra photos${i + 1}.jpg`)
+              images: Array.from({length: 12}, (_, i) => `/assets/volunteer yatra photos${i + 1}.jpg`)
             },
           ]
         },
