@@ -37,14 +37,26 @@ const VideoModal = ({ isOpen, onClose, videoSrc, title, embedId }: VideoModalPro
           {/* Video */}
           <div className="aspect-video">
             {embedId ? (
-              <iframe
-                className="w-full h-full"
-                src={`https://www.youtube.com/embed/${embedId}?autoplay=1`}
-                title={title}
-                frameBorder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-              />
+              // Check if it's a Vimeo or YouTube embed based on ID length
+              embedId.length > 11 ? (
+                <iframe
+                  className="w-full h-full"
+                  src={`https://player.vimeo.com/video/${embedId}?autoplay=1`}
+                  title={title}
+                  frameBorder="0"
+                  allow="autoplay; fullscreen; picture-in-picture"
+                  allowFullScreen
+                />
+              ) : (
+                <iframe
+                  className="w-full h-full"
+                  src={`https://www.youtube.com/embed/${embedId}?autoplay=1`}
+                  title={title}
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                />
+              )
             ) : (
               <video
                 className="w-full h-full"

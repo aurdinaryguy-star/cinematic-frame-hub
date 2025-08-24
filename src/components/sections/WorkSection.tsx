@@ -33,7 +33,7 @@ interface Project {
   id: string;
   title: string;
   thumbnail: string;
-  type: "image" | "video" | "youtube" | "gallery";
+  type: "image" | "video" | "youtube" | "vimeo" | "gallery";
   embedId?: string;
   images?: string[];
 }
@@ -144,20 +144,20 @@ const WorkSection = () => {
           id: "influencer",
           name: "",
           projects: [
-            { id: "ind1", title: "IND1", thumbnail: "/IND1.mp4", type: "video" },
-            { id: "ind2", title: "IND2", thumbnail: "/IND2.mp4", type: "video" },
-            { id: "ind3", title: "IND3", thumbnail: "/IND3.mp4", type: "video" },
-            { id: "ind4", title: "IND4", thumbnail: "/IND4.mp4", type: "video" },
-            { id: "ind5", title: "IND5", thumbnail: "/IND5.mp4", type: "video" },
-            { id: "ind6", title: "IND6", thumbnail: "/IND6.mp4", type: "video" },
-            { id: "ind7", title: "IND7", thumbnail: "/IND7.mp4", type: "video" },
-            { id: "ind8", title: "IND8", thumbnail: "/IND8.mp4", type: "video" },
-            { id: "ind9", title: "IND9", thumbnail: "/IND9.mp4", type: "video" },
-            { id: "ind10", title: "IND10", thumbnail: "/IND10.mp4", type: "video" },
-            { id: "ind11", title: "IND11", thumbnail: "/IND11.mp4", type: "video" },
-            { id: "ind12", title: "IND12", thumbnail: "/IND12.mp4", type: "video" },
-            { id: "ind13", title: "IND13", thumbnail: "/IND13.mp4", type: "video" },
-            { id: "ind14", title: "IND14", thumbnail: "/IND14.mp4", type: "video" },
+            { id: "ind1", title: "IND1", thumbnail: "", type: "vimeo", embedId: "1015115566333" },
+            { id: "ind2", title: "IND2", thumbnail: "", type: "vimeo", embedId: "1015117301260" },
+            { id: "ind3", title: "IND3", thumbnail: "", type: "vimeo", embedId: "1015118099296" },
+            { id: "ind4", title: "IND4", thumbnail: "", type: "vimeo", embedId: "1015119468759" },
+            { id: "ind5", title: "IND5", thumbnail: "", type: "vimeo", embedId: "1015119989152" },
+            { id: "ind6", title: "IND6", thumbnail: "", type: "vimeo", embedId: "1015120868421" },
+            { id: "ind7", title: "IND7", thumbnail: "", type: "vimeo", embedId: "1015121561080" },
+            { id: "ind8", title: "IND8", thumbnail: "", type: "vimeo", embedId: "1015122454791" },
+            { id: "ind9", title: "IND9", thumbnail: "", type: "vimeo", embedId: "1015123156974" },
+            { id: "ind10", title: "IND10", thumbnail: "", type: "vimeo", embedId: "1015124011021" },
+            { id: "ind11", title: "IND11", thumbnail: "", type: "vimeo", embedId: "1015125061095" },
+            { id: "ind12", title: "IND12", thumbnail: "", type: "vimeo", embedId: "1015125929083" },
+            { id: "ind13", title: "IND13", thumbnail: "", type: "vimeo", embedId: "1015126700803" },
+            { id: "ind14", title: "IND14", thumbnail: "", type: "vimeo", embedId: "1015127464446" },
           ]
         }
       ]
@@ -208,7 +208,7 @@ const WorkSection = () => {
   const handleProjectClick = (project: Project) => {
     if (project.type === "video") {
       setSelectedVideo({ src: project.thumbnail, title: project.title });
-    } else if (project.type === "youtube") {
+    } else if (project.type === "youtube" || project.type === "vimeo") {
       setSelectedVideo({ src: "", title: project.title, embedId: project.embedId });
     } else if (project.type === "gallery" && project.images) {
       setLightboxImages(project.images);
@@ -292,24 +292,35 @@ const WorkSection = () => {
                     >
                       <div className="relative rounded-lg overflow-hidden bg-muted/10 border border-border group-hover:border-accent/50 transition-smooth">
                         <div className="aspect-video relative">
-                          <video
-                            className="w-full h-full object-cover group-hover:scale-105 transition-smooth"
-                            poster={project.thumbnail}
-                            muted
-                            preload="metadata"
-                            controls
-                          >
-                            <source 
-                              src={project.thumbnail} 
-                              type="video/mp4"
-                            />
-                            Your browser does not support the video tag.
-                          </video>
-                          <div className="absolute inset-0 flex items-center justify-center bg-black/20 group-hover:bg-black/30 transition-smooth">
-                            <div className="w-16 h-16 rounded-full bg-accent/90 flex items-center justify-center group-hover:bg-accent transition-smooth">
-                              <Play className="w-8 h-8 text-white ml-1" />
+                          {project.type === "video" ? (
+                            <>
+                              <video
+                                className="w-full h-full object-cover group-hover:scale-105 transition-smooth"
+                                poster={project.thumbnail}
+                                muted
+                                preload="metadata"
+                                controls
+                              >
+                                <source 
+                                  src={project.thumbnail} 
+                                  type="video/mp4"
+                                />
+                                Your browser does not support the video tag.
+                              </video>
+                              <div className="absolute inset-0 flex items-center justify-center bg-black/20 group-hover:bg-black/30 transition-smooth">
+                                <div className="w-16 h-16 rounded-full bg-accent/90 flex items-center justify-center group-hover:bg-accent transition-smooth">
+                                  <Play className="w-8 h-8 text-white ml-1" />
+                                </div>
+                              </div>
+                            </>
+                          ) : (
+                            <div className="w-full h-full bg-muted/20 flex items-center justify-center">
+                              <div className="text-center">
+                                <Play className="w-16 h-16 text-accent mx-auto mb-2" />
+                                <p className="text-sm text-muted-foreground">Vimeo Video</p>
+                              </div>
                             </div>
-                          </div>
+                          )}
                         </div>
                       </div>
                       <h3 className="font-heading text-lg text-foreground mt-4 group-hover:text-accent transition-smooth">
@@ -402,7 +413,7 @@ const WorkSection = () => {
                       className="group cursor-pointer hover-lift transition-smooth"
                     >
                       <div className="relative rounded-lg overflow-hidden bg-muted/10 border border-border group-hover:border-accent/50 transition-smooth">
-                        <div className={`${project.type === "video" || project.type === "youtube" ? "aspect-video" : "aspect-square"} relative`}>
+                        <div className={`${project.type === "video" || project.type === "youtube" || project.type === "vimeo" ? "aspect-video" : "aspect-square"} relative`}>
                           {project.type === "video" ? (
                             <video
                               className="w-full h-full object-cover group-hover:scale-105 transition-smooth"
@@ -417,13 +428,20 @@ const WorkSection = () => {
                               />
                               Your browser does not support the video tag.
                             </video>
-                          ) : project.type === "youtube" ? (
-                            <div className="w-full h-full bg-muted/20 flex items-center justify-center">
-                              <div className="text-center">
-                                <Play className="w-16 h-16 text-accent mx-auto mb-2" />
-                                <p className="text-sm text-muted-foreground">YouTube Video</p>
-                              </div>
-                            </div>
+                           ) : project.type === "youtube" ? (
+                             <div className="w-full h-full bg-muted/20 flex items-center justify-center">
+                               <div className="text-center">
+                                 <Play className="w-16 h-16 text-accent mx-auto mb-2" />
+                                 <p className="text-sm text-muted-foreground">YouTube Video</p>
+                               </div>
+                             </div>
+                           ) : project.type === "vimeo" ? (
+                             <div className="w-full h-full bg-muted/20 flex items-center justify-center">
+                               <div className="text-center">
+                                 <Play className="w-16 h-16 text-accent mx-auto mb-2" />
+                                 <p className="text-sm text-muted-foreground">Vimeo Video</p>
+                               </div>
+                             </div>
                           ) : (
                             <img
                               src={project.thumbnail}
@@ -431,7 +449,7 @@ const WorkSection = () => {
                               className="w-full h-full object-cover group-hover:scale-105 transition-smooth"
                             />
                           )}
-                          {(project.type === "video" || project.type === "youtube") && (
+                          {(project.type === "video" || project.type === "youtube" || project.type === "vimeo") && (
                             <div className="absolute inset-0 flex items-center justify-center bg-black/20 group-hover:bg-black/30 transition-smooth">
                               <div className="w-16 h-16 rounded-full bg-accent/90 flex items-center justify-center group-hover:bg-accent transition-smooth">
                                 <Play className="w-8 h-8 text-white ml-1" />
@@ -443,9 +461,9 @@ const WorkSection = () => {
                       <h3 className="font-heading text-lg text-foreground mt-4 group-hover:text-accent transition-smooth">
                         {project.title}
                       </h3>
-                      <p className="text-sm text-muted-foreground capitalize">
-                        {project.type === "youtube" ? "YouTube Video" : project.type}
-                      </p>
+                       <p className="text-sm text-muted-foreground capitalize">
+                         {project.type === "youtube" ? "YouTube Video" : project.type === "vimeo" ? "Vimeo Video" : project.type}
+                       </p>
                     </div>
                   )}
                 </div>
