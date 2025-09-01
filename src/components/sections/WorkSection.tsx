@@ -87,13 +87,6 @@ const WorkSection = () => {
             { id: "h2", title: "HBS Video 2", thumbnail: "/HBS2.mp4", type: "video" },
             { id: "h3", title: "HBS Video 3", thumbnail: "/HBS3.mp4", type: "video" },
             { id: "h4", title: "HBS Video 4", thumbnail: "/HBS4.mp4", type: "video" },
-            { 
-              id: "h5", 
-              title: "HBS Photos", 
-              thumbnail: portraitImage, 
-              type: "gallery", 
-              images: Array.from({length: 24}, (_, i) => `/assets/hbs photos${i + 1}.jpg`)
-            },
           ]
         },
         {
