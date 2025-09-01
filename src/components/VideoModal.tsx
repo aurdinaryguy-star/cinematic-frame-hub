@@ -7,9 +7,10 @@ interface VideoModalProps {
   videoSrc: string;
   title: string;
   embedId?: string;
+  videoType?: "youtube" | "vimeo";
 }
 
-const VideoModal = ({ isOpen, onClose, videoSrc, title, embedId }: VideoModalProps) => {
+const VideoModal = ({ isOpen, onClose, videoSrc, title, embedId, videoType }: VideoModalProps) => {
   if (!isOpen) return null;
 
   return (
@@ -37,8 +38,7 @@ const VideoModal = ({ isOpen, onClose, videoSrc, title, embedId }: VideoModalPro
           {/* Video */}
           <div className="aspect-video">
             {embedId ? (
-              // Check if it's a Vimeo or YouTube embed based on ID length
-              embedId.length > 11 ? (
+              videoType === "vimeo" ? (
                 <iframe
                   className="w-full h-full"
                   src={`https://player.vimeo.com/video/${embedId}?autoplay=1`}

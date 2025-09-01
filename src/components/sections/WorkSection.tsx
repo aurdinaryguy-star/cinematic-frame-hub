@@ -42,7 +42,7 @@ const WorkSection = () => {
   const [currentView, setCurrentView] = useState<"categories" | "clients" | "projects">("categories");
   const [selectedCategory, setSelectedCategory] = useState<Category | null>(null);
   const [selectedClient, setSelectedClient] = useState<Client | null>(null);
-  const [selectedVideo, setSelectedVideo] = useState<{ src: string; title: string; embedId?: string } | null>(null);
+  const [selectedVideo, setSelectedVideo] = useState<{ src: string; title: string; embedId?: string; type?: "youtube" | "vimeo" } | null>(null);
   const [lightboxImages, setLightboxImages] = useState<string[]>([]);
   const [lightboxIndex, setLightboxIndex] = useState(0);
   const [isLightboxOpen, setIsLightboxOpen] = useState(false);
@@ -209,7 +209,7 @@ const WorkSection = () => {
     if (project.type === "video") {
       setSelectedVideo({ src: project.thumbnail, title: project.title });
     } else if (project.type === "youtube" || project.type === "vimeo") {
-      setSelectedVideo({ src: "", title: project.title, embedId: project.embedId });
+      setSelectedVideo({ src: "", title: project.title, embedId: project.embedId, type: project.type });
     } else if (project.type === "gallery" && project.images) {
       setLightboxImages(project.images);
       setLightboxIndex(0);
@@ -480,6 +480,7 @@ const WorkSection = () => {
         videoSrc={selectedVideo?.src || ""}
         title={selectedVideo?.title || ""}
         embedId={selectedVideo?.embedId}
+        videoType={selectedVideo?.type}
       />
 
       {/* Image Lightbox */}
