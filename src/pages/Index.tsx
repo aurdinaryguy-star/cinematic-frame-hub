@@ -5,7 +5,7 @@ import HomeSection from "@/components/sections/HomeSection";
 import WorkSection from "@/components/sections/WorkSection";
 import AboutSection from "@/components/sections/AboutSection";
 import ContactSection from "@/components/sections/ContactSection";
-import BlogSection from "@/components/sections/BlogSection";
+import PhotosSection from "@/components/sections/PhotosSection";
 
 const Index = () => {
   const [activeTab, setActiveTab] = useState("home");
@@ -20,8 +20,8 @@ const Index = () => {
         return <AboutSection />;
       case "contact":
         return <ContactSection />;
-      case "blog":
-        return <BlogSection />;
+      case "photos":
+        return <PhotosSection />;
       default:
         return <HomeSection />;
     }

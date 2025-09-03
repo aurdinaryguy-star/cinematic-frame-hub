@@ -12,7 +12,7 @@ const Navigation = ({ activeTab, onTabChange }: NavigationProps) => {
     { id: "work", label: "Work" },
     { id: "about", label: "About" },
     { id: "contact", label: "Contact" },
-    { id: "blog", label: "Blog" },
+    { id: "photos", label: "Photos" },
   ];
 
   return (
