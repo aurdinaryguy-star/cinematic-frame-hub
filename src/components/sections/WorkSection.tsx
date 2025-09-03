@@ -69,13 +69,6 @@ const WorkSection = () => {
           logo: aspenLogo,
           projects: [
             { id: "a1", title: "Aspen Video", thumbnail: "/aspen.mp4", type: "video" },
-            { 
-              id: "a2", 
-              title: "Aspen Photos", 
-              thumbnail: heroImage, 
-              type: "gallery", 
-              images: Array.from({length: 9}, (_, i) => `/assets/aspen photos${i + 1}.jpg`)
-            },
           ]
         },
         {
@@ -107,13 +100,6 @@ const WorkSection = () => {
             { id: "v1", title: "Volunteer Video 1", thumbnail: "/VY1.mp4", type: "video" },
             { id: "v2", title: "Volunteer Video 2", thumbnail: "/VY2.mp4", type: "video" },
             { id: "v3", title: "Volunteer Video 3", thumbnail: "/VY3.mp4", type: "video" },
-            { 
-              id: "v4", 
-              title: "Volunteer Yatra Photos", 
-              thumbnail: volunteerYatraLogo, 
-              type: "gallery", 
-              images: Array.from({length: 12}, (_, i) => `/assets/volunteer yatra photos${i + 1}.jpg`)
-            },
           ]
         },
         {
