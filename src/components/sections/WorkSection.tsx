@@ -47,6 +47,7 @@ const WorkSection = () => {
   const [lightboxIndex, setLightboxIndex] = useState(0);
   const [isLightboxOpen, setIsLightboxOpen] = useState(false);
   const [vimeoThumbnails, setVimeoThumbnails] = useState<Record<string, string>>({});
+  const [youtubeThumbnails, setYoutubeThumbnails] = useState<Record<string, string>>({});
 
   const categories: Category[] = [
     {
@@ -203,16 +204,23 @@ const WorkSection = () => {
     setIsLightboxOpen(true);
   };
 
-  // Fetch Vimeo thumbnails
+  // Fetch Vimeo and YouTube thumbnails
   useEffect(() => {
-    const fetchVimeoThumbnails = async () => {
-      const thumbnails: Record<string, string> = {};
+    const fetchThumbnails = async () => {
+      const vimeoThumbnails: Record<string, string> = {};
+      const youtubeThumbnails: Record<string, string> = {};
       
       // Get all Vimeo projects
       const vimeoProjects = categories
         .flatMap(category => category.clients)
         .flatMap(client => client.projects)
         .filter(project => project.type === "vimeo" && project.embedId);
+
+      // Get all YouTube projects
+      const youtubeProjects = categories
+        .flatMap(category => category.clients)
+        .flatMap(client => client.projects)
+        .filter(project => project.type === "youtube" && project.embedId);
 
       // Fetch thumbnails for each Vimeo video
       await Promise.all(
@@ -226,7 +234,7 @@ const WorkSection = () => {
               );
               const data = await response.json();
               if (data.thumbnail_url) {
-                thumbnails[project.embedId] = data.thumbnail_url;
+                vimeoThumbnails[project.embedId] = data.thumbnail_url;
               }
             } catch (error) {
               console.error(`Failed to fetch thumbnail for Vimeo ${project.embedId}:`, error);
@@ -235,10 +243,18 @@ const WorkSection = () => {
         })
       );
 
-      setVimeoThumbnails(thumbnails);
+      // Generate YouTube thumbnails
+      youtubeProjects.forEach((project) => {
+        if (project.embedId) {
+          youtubeThumbnails[project.embedId] = `https://img.youtube.com/vi/${project.embedId}/hqdefault.jpg`;
+        }
+      });
+
+      setVimeoThumbnails(vimeoThumbnails);
+      setYoutubeThumbnails(youtubeThumbnails);
     };
 
-    fetchVimeoThumbnails();
+    fetchThumbnails();
   }, []);
 
   return (
@@ -463,12 +479,23 @@ const WorkSection = () => {
                               Your browser does not support the video tag.
                             </video>
                            ) : project.type === "youtube" ? (
-                             <div className="w-full h-full bg-muted/20 flex items-center justify-center">
-                               <div className="text-center">
-                                 <Play className="w-16 h-16 text-accent mx-auto mb-2" />
-                                 <p className="text-sm text-muted-foreground">YouTube Video</p>
-                               </div>
-                             </div>
+                             <>
+                               {youtubeThumbnails[project.embedId!] ? (
+                                 <img
+                                   src={youtubeThumbnails[project.embedId!]}
+                                   alt={project.title}
+                                   className="w-full h-full object-cover group-hover:scale-105 transition-smooth"
+                                   loading="lazy"
+                                 />
+                               ) : (
+                                 <div className="w-full h-full bg-muted/20 flex items-center justify-center">
+                                   <div className="text-center">
+                                     <Play className="w-16 h-16 text-accent mx-auto mb-2" />
+                                     <p className="text-sm text-muted-foreground">Loading...</p>
+                                   </div>
+                                 </div>
+                               )}
+                             </>
                            ) : project.type === "vimeo" ? (
                               <>
                                 {vimeoThumbnails[project.embedId!] ? (
