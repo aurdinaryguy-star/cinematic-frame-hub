@@ -94,8 +94,8 @@ const AboutSection = () => {
   </h4>
   <div className="space-y-3">
     {[
-      "Created and edited over 2000+ videos, reaching more than 100M+ views across YouTube and social media.",
-      "Contributed to 700K+ YouTube subscribers through strategic content and cinematic storytelling.",
+      "Created and edited over 1000+ videos, reaching more than 10M+ views across YouTube and social media.",
+      "Contributed to 200K+ YouTube subscribers through strategic content and cinematic storytelling.",
       "Collaborated with architecture and luxury brands like HB/HBS, producing high-end cinematic campaigns.",
       "My clicked photo was published by ANI.",
       `<strong><a href="https://dgca.gov.in" target="_blank" rel="noopener noreferrer" class="text-accent hover:underline">DGCA Certified Drone Pilot</a></strong> – officially licensed to operate drones in India.`
