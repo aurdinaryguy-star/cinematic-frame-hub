@@ -123,7 +123,7 @@ const WorkSection = () => {
           id: "influencer",
           name: "",
           projects: [
-            { id: "ind1", title: "IND1", thumbnail: "", type: "vimeo", embedId: "101511556633379" },
+            { id: "ind1", title: "IND1", thumbnail: "", type: "vimeo", embedId: "1112484191" },
             { id: "ind2", title: "IND2", thumbnail: "", type: "vimeo", embedId: "101511730126049" },
             { id: "ind3", title: "IND3", thumbnail: "", type: "vimeo", embedId: "101511809929689" },
             { id: "ind4", title: "IND4", thumbnail: "", type: "vimeo", embedId: "101511946875939" },
