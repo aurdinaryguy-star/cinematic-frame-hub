@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { ArrowRight, Users, Video, Briefcase, Play } from "lucide-react";
 import VideoModal from "../VideoModal";
 import ImageLightbox from "../ImageLightbox";
@@ -46,6 +46,7 @@ const WorkSection = () => {
   const [lightboxImages, setLightboxImages] = useState<string[]>([]);
   const [lightboxIndex, setLightboxIndex] = useState(0);
   const [isLightboxOpen, setIsLightboxOpen] = useState(false);
+  const [vimeoThumbnails, setVimeoThumbnails] = useState<Record<string, string>>({});
 
   const categories: Category[] = [
     {
@@ -202,6 +203,44 @@ const WorkSection = () => {
     setIsLightboxOpen(true);
   };
 
+  // Fetch Vimeo thumbnails
+  useEffect(() => {
+    const fetchVimeoThumbnails = async () => {
+      const thumbnails: Record<string, string> = {};
+      
+      // Get all Vimeo projects
+      const vimeoProjects = categories
+        .flatMap(category => category.clients)
+        .flatMap(client => client.projects)
+        .filter(project => project.type === "vimeo" && project.embedId);
+
+      // Fetch thumbnails for each Vimeo video
+      await Promise.all(
+        vimeoProjects.map(async (project) => {
+          if (project.embedId) {
+            try {
+              // Clean the embedId (remove any leading slash)
+              const cleanEmbedId = project.embedId.replace(/^\/+/, '');
+              const response = await fetch(
+                `https://vimeo.com/api/oembed.json?url=https://vimeo.com/${cleanEmbedId}`
+              );
+              const data = await response.json();
+              if (data.thumbnail_url) {
+                thumbnails[project.embedId] = data.thumbnail_url;
+              }
+            } catch (error) {
+              console.error(`Failed to fetch thumbnail for Vimeo ${project.embedId}:`, error);
+            }
+          }
+        })
+      );
+
+      setVimeoThumbnails(thumbnails);
+    };
+
+    fetchVimeoThumbnails();
+  }, []);
+
   return (
     <div className="section-cinematic">
       <div className="container mx-auto px-6">
@@ -292,14 +331,30 @@ const WorkSection = () => {
                                 </div>
                               </div>
                             </>
-                          ) : (
-                            <div className="w-full h-full bg-muted/20 flex items-center justify-center">
-                              <div className="text-center">
-                                <Play className="w-16 h-16 text-accent mx-auto mb-2" />
-                                <p className="text-sm text-muted-foreground">Vimeo Video</p>
+                          ) : project.type === "vimeo" ? (
+                            <>
+                              {vimeoThumbnails[project.embedId!] ? (
+                                <img
+                                  src={vimeoThumbnails[project.embedId!]}
+                                  alt={project.title}
+                                  className="w-full h-full object-cover group-hover:scale-105 transition-smooth"
+                                  loading="lazy"
+                                />
+                              ) : (
+                                <div className="w-full h-full bg-muted/20 flex items-center justify-center">
+                                  <div className="text-center">
+                                    <Play className="w-16 h-16 text-accent mx-auto mb-2" />
+                                    <p className="text-sm text-muted-foreground">Loading...</p>
+                                  </div>
+                                </div>
+                              )}
+                              <div className="absolute inset-0 flex items-center justify-center bg-black/20 group-hover:bg-black/30 transition-smooth">
+                                <div className="w-16 h-16 rounded-full bg-accent/90 flex items-center justify-center group-hover:bg-accent transition-smooth">
+                                  <Play className="w-8 h-8 text-white ml-1" />
+                                </div>
                               </div>
-                            </div>
-                          )}
+                            </>
+                          ) : null}
                         </div>
                       </div>
                       <h3 className="font-heading text-lg text-foreground mt-4 group-hover:text-accent transition-smooth">
@@ -415,12 +470,23 @@ const WorkSection = () => {
                                </div>
                              </div>
                            ) : project.type === "vimeo" ? (
-                             <div className="w-full h-full bg-muted/20 flex items-center justify-center">
-                               <div className="text-center">
-                                 <Play className="w-16 h-16 text-accent mx-auto mb-2" />
-                                 <p className="text-sm text-muted-foreground">Vimeo Video</p>
-                               </div>
-                             </div>
+                              <>
+                                {vimeoThumbnails[project.embedId!] ? (
+                                  <img
+                                    src={vimeoThumbnails[project.embedId!]}
+                                    alt={project.title}
+                                    className="w-full h-full object-cover group-hover:scale-105 transition-smooth"
+                                    loading="lazy"
+                                  />
+                                ) : (
+                                  <div className="w-full h-full bg-muted/20 flex items-center justify-center">
+                                    <div className="text-center">
+                                      <Play className="w-16 h-16 text-accent mx-auto mb-2" />
+                                      <p className="text-sm text-muted-foreground">Loading...</p>
+                                    </div>
+                                  </div>
+                                )}
+                              </>
                           ) : (
                             <img
                               src={project.thumbnail}
