@@ -3,16 +3,16 @@ import portraitImage from "@/assets/IMG_4581.jpg";
 const AboutSection = () => {
   return (
     <div className="section-cinematic">
-      <div className="container mx-auto px-6">
+      <div className="container mx-auto px-4 sm:px-6">
         <div className="animate-fade-in">
-          <div className="text-center mb-16">
-            <h2 className="font-heading text-display text-foreground mb-6">
+          <div className="text-center mb-12 sm:mb-16">
+            <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl lg:text-display text-foreground mb-4 sm:mb-6">
               About Me
             </h2>
           </div>
 
           <div className="max-w-6xl mx-auto">
-            <div className="grid lg:grid-cols-2 gap-16 items-center">
+            <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center">
               {/* Portrait Image */}
               <div className="order-2 lg:order-1">
                 <div className="relative">
@@ -28,13 +28,13 @@ const AboutSection = () => {
               </div>
 
               {/* Bio Content */}
-              <div className="order-1 lg:order-2 space-y-8">
-                <div className="space-y-6">
-                  <h3 className="font-heading text-cinematic text-foreground">
+              <div className="order-1 lg:order-2 space-y-6 sm:space-y-8">
+                <div className="space-y-4 sm:space-y-6">
+                  <h3 className="font-heading text-xl sm:text-2xl md:text-3xl lg:text-cinematic text-foreground">
                     Crafting Visual Stories
                   </h3>
                   
-                  <div className="space-y-4 font-body text-lg text-muted-foreground leading-relaxed">
+                  <div className="space-y-3 sm:space-y-4 font-body text-base sm:text-lg text-muted-foreground leading-relaxed">
                     <p>
                       Hi, I’m <strong>Prakash Kumar</strong> — a visual storyteller,
                       cinematographer, and content creator based in New Delhi. I specialize in
@@ -64,11 +64,11 @@ const AboutSection = () => {
                 </div>
 
                 {/* Skills/Expertise */}
-                <div className="space-y-4">
-                  <h4 className="font-heading text-xl text-foreground">
+                <div className="space-y-3 sm:space-y-4">
+                  <h4 className="font-heading text-lg sm:text-xl text-foreground">
                     Expertise
                   </h4>
-                  <div className="flex flex-wrap gap-3">
+                  <div className="flex flex-wrap gap-2 sm:gap-3">
                     {[
                       "Cinematography",
                       "Direction",
@@ -79,7 +79,7 @@ const AboutSection = () => {
                     ].map((skill, index) => (
                       <span
                         key={index}
-                        className="px-4 py-2 rounded-full bg-accent/10 border border-accent/20 text-accent font-body text-sm"
+                        className="px-3 py-1.5 sm:px-4 sm:py-2 rounded-full bg-accent/10 border border-accent/20 text-accent font-body text-xs sm:text-sm"
                       >
                         {skill}
                       </span>
@@ -88,8 +88,8 @@ const AboutSection = () => {
                 </div>
 
                 {/* Awards/Recognition */}
-               <div className="space-y-4">
-  <h4 className="font-heading text-xl text-foreground">
+               <div className="space-y-3 sm:space-y-4">
+  <h4 className="font-heading text-lg sm:text-xl text-foreground">
     Recognition
   </h4>
   <div className="space-y-3">

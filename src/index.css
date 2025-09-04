@@ -206,12 +206,26 @@
   /* Full Screen Sections */
   .section-full {
     min-height: 100vh;
+    min-height: 100svh; /* Better mobile support */
     @apply flex items-center justify-center;
   }
   
   .section-cinematic {
     min-height: 100vh;
+    min-height: 100svh; /* Better mobile support */
     padding: var(--space-section) 0;
+  }
+
+  /* Mobile Optimizations */
+  @media (max-width: 768px) {
+    .section-full {
+      min-height: 100svh;
+    }
+    
+    .section-cinematic {
+      min-height: auto;
+      padding: 4rem 0;
+    }
   }
 
   /* Navigation Styles */

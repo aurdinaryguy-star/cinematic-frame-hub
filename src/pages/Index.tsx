@@ -31,7 +31,7 @@ const Index = () => {
     <div className="min-h-screen bg-background">
       <Navigation activeTab={activeTab} onTabChange={setActiveTab} />
       <SocialIcons />
-      <main className="pt-20">
+      <main className="pt-16 sm:pt-20">
         {renderActiveSection()}
       </main>
     </div>

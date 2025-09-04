@@ -19,9 +19,11 @@ const HomeSection = () => {
         backgroundAttachment: 'fixed'
       }}>
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-background/20 to-background/80"></div>
-        <div className="relative z-10 text-center animate-fade-in">
-          <h1 className="font-hero text-hero text-foreground mb-6 tracking-tight">PRAKASH SINGH</h1>
-          <p className="font-body text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+        <div className="relative z-10 text-center animate-fade-in px-4 sm:px-6">
+          <h1 className="font-hero text-4xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-hero text-foreground mb-4 sm:mb-6 tracking-tight">
+            PRAKASH SINGH
+          </h1>
+          <p className="font-body text-lg sm:text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto leading-relaxed px-4">
             Cinematic Storyteller & Visual Artist
           </p>
         </div>
@@ -29,20 +31,28 @@ const HomeSection = () => {
 
       {/* Second Scroll - Video Player Section */}
       <div className="section-full bg-background relative">
-        <div className="container mx-auto px-6">
+        <div className="container mx-auto px-4 sm:px-6">
           <div className="max-w-6xl mx-auto">
-            <div className="mb-12 text-center animate-slide-up">
-              <h2 className="font-heading text-display text-foreground mb-4">
+            <div className="mb-8 sm:mb-12 text-center animate-slide-up">
+              <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl lg:text-display text-foreground mb-4">
                 My Showreel
               </h2>
-              <p className="font-body text-lg text-muted-foreground">
+              <p className="font-body text-base sm:text-lg text-muted-foreground px-4">
                 A collection of my finest work
               </p>
             </div>
             
             {/* Video Player */}
             <div className="relative aspect-video rounded-lg overflow-hidden shadow-cinematic hover-lift">
-              <video ref={videoRef} className="w-full h-full object-cover" controls muted loop poster="/placeholder.svg">
+              <video 
+                ref={videoRef} 
+                className="w-full h-full object-cover" 
+                controls 
+                muted 
+                loop 
+                poster="/placeholder.svg"
+                preload="metadata"
+              >
                 <source src="/D4%20COMBM%202.MP4" type="video/mp4" />
                 Your browser does not support the video tag.
               </video>

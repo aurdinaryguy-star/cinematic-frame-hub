@@ -77,17 +77,18 @@ const PhotosSection = () => {
     const categoryPhotos = getPhotosByCategory(category);
     
     return (
-      <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-2 sm:gap-3 md:gap-4">
         {categoryPhotos.map((photo) => (
           <div
             key={photo.id}
             onClick={() => handlePhotoClick(photo, categoryPhotos)}
-            className="aspect-square overflow-hidden rounded-lg cursor-pointer group hover-lift"
+            className="aspect-square overflow-hidden rounded-lg cursor-pointer group hover-lift touch-manipulation"
           >
             <img
               src={photo.src}
               alt={photo.alt}
               className="w-full h-full object-cover group-hover:scale-110 transition-smooth"
+              loading="lazy"
             />
           </div>
         ))}
@@ -97,47 +98,47 @@ const PhotosSection = () => {
 
   return (
     <div className="section-cinematic">
-      <div className="container mx-auto px-6">
+      <div className="container mx-auto px-4 sm:px-6">
         <div className="animate-fade-in">
-          <div className="text-center mb-16">
-            <h2 className="font-heading text-display text-foreground mb-6">
+          <div className="text-center mb-12 sm:mb-16">
+            <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl lg:text-display text-foreground mb-4 sm:mb-6">
               Photography Portfolio
             </h2>
-            <p className="font-body text-lg text-muted-foreground max-w-2xl mx-auto">
+            <p className="font-body text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto px-4">
               A collection of my photography work across different genres and styles
             </p>
           </div>
 
           <div className="max-w-7xl mx-auto">
             <Tabs defaultValue="architecture" className="w-full">
-              <TabsList className="grid w-full grid-cols-5 mb-12 bg-card">
+              <TabsList className="grid w-full grid-cols-2 sm:grid-cols-3 md:grid-cols-5 mb-8 sm:mb-12 bg-card gap-1 p-1">
                 <TabsTrigger 
                   value="architecture" 
-                  className="data-[state=active]:bg-accent data-[state=active]:text-accent-foreground"
+                  className="data-[state=active]:bg-accent data-[state=active]:text-accent-foreground text-xs sm:text-sm py-2 sm:py-3"
                 >
                   Architecture
                 </TabsTrigger>
                 <TabsTrigger 
                   value="cars"
-                  className="data-[state=active]:bg-accent data-[state=active]:text-accent-foreground"
+                  className="data-[state=active]:bg-accent data-[state=active]:text-accent-foreground text-xs sm:text-sm py-2 sm:py-3"
                 >
                   Cars
                 </TabsTrigger>
                 <TabsTrigger 
                   value="ecommerce"
-                  className="data-[state=active]:bg-accent data-[state=active]:text-accent-foreground"
+                  className="data-[state=active]:bg-accent data-[state=active]:text-accent-foreground text-xs sm:text-sm py-2 sm:py-3 col-span-2 sm:col-span-1"
                 >
                   E-commerce
                 </TabsTrigger>
                 <TabsTrigger 
                   value="travel"
-                  className="data-[state=active]:bg-accent data-[state=active]:text-accent-foreground"
+                  className="data-[state=active]:bg-accent data-[state=active]:text-accent-foreground text-xs sm:text-sm py-2 sm:py-3"
                 >
                   Travel
                 </TabsTrigger>
                 <TabsTrigger 
                   value="landscapes"
-                  className="data-[state=active]:bg-accent data-[state=active]:text-accent-foreground"
+                  className="data-[state=active]:bg-accent data-[state=active]:text-accent-foreground text-xs sm:text-sm py-2 sm:py-3"
                 >
                   Landscapes
                 </TabsTrigger>
