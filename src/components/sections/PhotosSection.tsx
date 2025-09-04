@@ -111,34 +111,73 @@ const PhotosSection = () => {
 
           <div className="max-w-7xl mx-auto">
             <Tabs defaultValue="architecture" className="w-full">
-              <TabsList className="grid w-full grid-cols-2 sm:grid-cols-3 md:grid-cols-5 mb-8 sm:mb-12 bg-card gap-1 p-1">
+              {/* Mobile: Horizontal scrollable tabs */}
+              <div className="md:hidden mb-8">
+                <div className="overflow-x-auto pb-2">
+                  <TabsList className="flex w-max min-w-full bg-card p-1 gap-1">
+                    <TabsTrigger 
+                      value="architecture" 
+                      className="data-[state=active]:bg-accent data-[state=active]:text-accent-foreground text-xs py-2 px-4 whitespace-nowrap flex-shrink-0"
+                    >
+                      Architecture
+                    </TabsTrigger>
+                    <TabsTrigger 
+                      value="cars"
+                      className="data-[state=active]:bg-accent data-[state=active]:text-accent-foreground text-xs py-2 px-4 whitespace-nowrap flex-shrink-0"
+                    >
+                      Cars
+                    </TabsTrigger>
+                    <TabsTrigger 
+                      value="ecommerce"
+                      className="data-[state=active]:bg-accent data-[state=active]:text-accent-foreground text-xs py-2 px-4 whitespace-nowrap flex-shrink-0"
+                    >
+                      E-commerce
+                    </TabsTrigger>
+                    <TabsTrigger 
+                      value="travel"
+                      className="data-[state=active]:bg-accent data-[state=active]:text-accent-foreground text-xs py-2 px-4 whitespace-nowrap flex-shrink-0"
+                    >
+                      Travel
+                    </TabsTrigger>
+                    <TabsTrigger 
+                      value="landscapes"
+                      className="data-[state=active]:bg-accent data-[state=active]:text-accent-foreground text-xs py-2 px-4 whitespace-nowrap flex-shrink-0"
+                    >
+                      Landscapes
+                    </TabsTrigger>
+                  </TabsList>
+                </div>
+              </div>
+
+              {/* Desktop: Grid layout */}
+              <TabsList className="hidden md:grid md:grid-cols-5 w-full mb-12 bg-card gap-1 p-1">
                 <TabsTrigger 
                   value="architecture" 
-                  className="data-[state=active]:bg-accent data-[state=active]:text-accent-foreground text-xs sm:text-sm py-2 sm:py-3"
+                  className="data-[state=active]:bg-accent data-[state=active]:text-accent-foreground text-sm py-3"
                 >
                   Architecture
                 </TabsTrigger>
                 <TabsTrigger 
                   value="cars"
-                  className="data-[state=active]:bg-accent data-[state=active]:text-accent-foreground text-xs sm:text-sm py-2 sm:py-3"
+                  className="data-[state=active]:bg-accent data-[state=active]:text-accent-foreground text-sm py-3"
                 >
                   Cars
                 </TabsTrigger>
                 <TabsTrigger 
                   value="ecommerce"
-                  className="data-[state=active]:bg-accent data-[state=active]:text-accent-foreground text-xs sm:text-sm py-2 sm:py-3 col-span-2 sm:col-span-1"
+                  className="data-[state=active]:bg-accent data-[state=active]:text-accent-foreground text-sm py-3"
                 >
                   E-commerce
                 </TabsTrigger>
                 <TabsTrigger 
                   value="travel"
-                  className="data-[state=active]:bg-accent data-[state=active]:text-accent-foreground text-xs sm:text-sm py-2 sm:py-3"
+                  className="data-[state=active]:bg-accent data-[state=active]:text-accent-foreground text-sm py-3"
                 >
                   Travel
                 </TabsTrigger>
                 <TabsTrigger 
                   value="landscapes"
-                  className="data-[state=active]:bg-accent data-[state=active]:text-accent-foreground text-xs sm:text-sm py-2 sm:py-3"
+                  className="data-[state=active]:bg-accent data-[state=active]:text-accent-foreground text-sm py-3"
                 >
                   Landscapes
                 </TabsTrigger>
