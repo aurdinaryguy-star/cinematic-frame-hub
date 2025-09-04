@@ -91,7 +91,7 @@ const WorkSection = () => {
           projects: [
             { id: "j1", title: "Just Wravel Video 1", thumbnail: "/JUSTWRAVEL1.MP4", type: "video" },
             { id: "j2", title: "Just Wravel Video 2", thumbnail: "/JUSTWRAVEL2.mp4", type: "video" },
-            { id: "j3", title: "Just Wravel Video 3", thumbnail: "/JUSTWRAVEL3.MP4", type: "video" },
+            { id: "j3", title: "Just Wravel Video 3", thumbnail: "/JUSTWRAVEL3.mp4", type: "video" },
           ]
         },
         {
