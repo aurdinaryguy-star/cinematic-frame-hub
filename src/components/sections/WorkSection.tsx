@@ -131,7 +131,7 @@ const WorkSection = () => {
             { id: "ind4", title: "IND4", thumbnail: "", type: "vimeo", embedId: "1112484243" },
             { id: "ind5", title: "IND5", thumbnail: "", type: "vimeo", embedId: "1112484261" },
             { id: "ind6", title: "IND6", thumbnail: "", type: "vimeo", embedId: "1112484274" },
-            { id: "ind7", title: "IND7", thumbnail: "", type: "vimeo", embedId: "/1112484292" },
+            { id: "ind7", title: "IND7", thumbnail: "", type: "vimeo", embedId: "1112484292" },
             { id: "ind8", title: "IND8", thumbnail: "", type: "vimeo", embedId: "1112484308" },
             { id: "ind9", title: "IND9", thumbnail: "", type: "vimeo", embedId: "1112484324" },
             { id: "ind10", title: "IND10", thumbnail: "", type: "vimeo", embedId: "1112484335" },
