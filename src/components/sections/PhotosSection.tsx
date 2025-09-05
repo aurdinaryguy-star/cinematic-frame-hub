@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useParams, useNavigate } from "react-router-dom";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import ImageLightbox from "@/components/ImageLightbox";
 
@@ -10,9 +11,27 @@ interface Photo {
 }
 
 const PhotosSection = () => {
+  const params = useParams();
+  const navigate = useNavigate();
   const [selectedImages, setSelectedImages] = useState<string[]>([]);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isLightboxOpen, setIsLightboxOpen] = useState(false);
+  const [activeTab, setActiveTab] = useState("architecture");
+
+  const categories = ["architecture", "cars", "ecommerce", "travel", "landscapes"];
+
+  // URL navigation logic
+  useEffect(() => {
+    const { category } = params;
+    if (category && categories.includes(category)) {
+      setActiveTab(category);
+    }
+  }, [params]);
+
+  const handleTabChange = (tab: string) => {
+    setActiveTab(tab);
+    navigate(`/photos/${tab}`);
+  };
 
   // Sample photos data - replace with your actual photos
   const photos: Photo[] = [
@@ -110,7 +129,7 @@ const PhotosSection = () => {
           </div>
 
           <div className="max-w-7xl mx-auto">
-            <Tabs defaultValue="architecture" className="w-full">
+            <Tabs value={activeTab} onValueChange={handleTabChange} className="w-full">
               {/* Mobile: Horizontal scrollable tabs */}
               <div className="md:hidden mb-8">
                 <div className="overflow-x-auto pb-2">

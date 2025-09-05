@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useParams, useNavigate, useLocation } from "react-router-dom";
 import Navigation from "@/components/Navigation";
 import SocialIcons from "@/components/SocialIcons";
 import HomeSection from "@/components/sections/HomeSection";
@@ -8,7 +9,31 @@ import ContactSection from "@/components/sections/ContactSection";
 import PhotosSection from "@/components/sections/PhotosSection";
 
 const Index = () => {
+  const params = useParams();
+  const navigate = useNavigate();
+  const location = useLocation();
   const [activeTab, setActiveTab] = useState("home");
+
+  // Determine active tab from URL
+  useEffect(() => {
+    const path = location.pathname;
+    if (path === "/" || path === "/home") {
+      setActiveTab("home");
+    } else if (path.startsWith("/work")) {
+      setActiveTab("work");
+    } else if (path.startsWith("/about")) {
+      setActiveTab("about");
+    } else if (path.startsWith("/contact")) {
+      setActiveTab("contact");
+    } else if (path.startsWith("/photos")) {
+      setActiveTab("photos");
+    }
+  }, [location.pathname]);
+
+  const handleTabChange = (tab: string) => {
+    setActiveTab(tab);
+    navigate(`/${tab === "home" ? "" : tab}`);
+  };
 
   const renderActiveSection = () => {
     switch (activeTab) {
@@ -29,7 +54,7 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <Navigation activeTab={activeTab} onTabChange={setActiveTab} />
+      <Navigation activeTab={activeTab} onTabChange={handleTabChange} />
       <SocialIcons />
       <main className="pt-16 sm:pt-20">
         {renderActiveSection()}

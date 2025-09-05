@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useParams, useNavigate } from "react-router-dom";
 import { ArrowRight, Users, Video, Briefcase, Play } from "lucide-react";
 import VideoModal from "../VideoModal";
 import ImageLightbox from "../ImageLightbox";
@@ -39,6 +40,8 @@ interface Project {
 }
 
 const WorkSection = () => {
+  const params = useParams();
+  const navigate = useNavigate();
   const [currentView, setCurrentView] = useState<"categories" | "clients" | "projects">("categories");
   const [selectedCategory, setSelectedCategory] = useState<Category | null>(null);
   const [selectedClient, setSelectedClient] = useState<Client | null>(null);
@@ -48,6 +51,38 @@ const WorkSection = () => {
   const [isLightboxOpen, setIsLightboxOpen] = useState(false);
   const [vimeoThumbnails, setVimeoThumbnails] = useState<Record<string, string>>({});
   const [youtubeThumbnails, setYoutubeThumbnails] = useState<Record<string, string>>({});
+
+  // URL navigation logic
+  useEffect(() => {
+    const { category, project } = params;
+    
+    if (category && project) {
+      // Find the category and client/project
+      const foundCategory = categories.find(c => c.id === category);
+      if (foundCategory) {
+        setSelectedCategory(foundCategory);
+        const foundClient = foundCategory.clients.find(client => 
+          client.projects.some(p => p.id === project)
+        );
+        if (foundClient) {
+          setSelectedClient(foundClient);
+          setCurrentView("projects");
+        }
+      }
+    } else if (category) {
+      // Just show category
+      const foundCategory = categories.find(c => c.id === category);
+      if (foundCategory) {
+        setSelectedCategory(foundCategory);
+        setCurrentView("clients");
+      }
+    } else {
+      // Reset to categories view
+      setCurrentView("categories");
+      setSelectedCategory(null);
+      setSelectedClient(null);
+    }
+  }, [params]);
 
   const categories: Category[] = [
     {
@@ -169,20 +204,24 @@ const WorkSection = () => {
   const handleCategorySelect = (category: Category) => {
     setSelectedCategory(category);
     setCurrentView("clients");
+    navigate(`/work/${category.id}`);
   };
 
   const handleClientSelect = (client: Client) => {
     setSelectedClient(client);
     setCurrentView("projects");
+    navigate(`/work/${selectedCategory?.id}/${client.id}`);
   };
 
   const handleBack = () => {
     if (currentView === "projects") {
       setCurrentView("clients");
       setSelectedClient(null);
+      navigate(`/work/${selectedCategory?.id}`);
     } else if (currentView === "clients") {
       setCurrentView("categories");
       setSelectedCategory(null);
+      navigate("/work");
     }
   };
 
