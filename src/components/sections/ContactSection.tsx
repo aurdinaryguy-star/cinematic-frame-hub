@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
+import emailjs from '@emailjs/browser';
 const ContactSection = () => {
   const [formData, setFormData] = useState({
     name: "",
@@ -18,19 +19,38 @@ const ContactSection = () => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate form submission
-    setTimeout(() => {
+    try {
+      await emailjs.send(
+        'service_jhchcqf',
+        'template_u3mxkvk',
+        {
+          from_name: formData.name,
+          from_email: formData.email,
+          message: formData.message,
+        },
+        'SJ22wZVDx8ulAVsLo'
+      );
+
       toast({
-        title: "Message sent!",
+        title: "Message sent successfully!",
         description: "Thank you for reaching out. I'll get back to you soon."
       });
+
       setFormData({
         name: "",
         email: "",
         message: ""
       });
+    } catch (error) {
+      console.error('EmailJS error:', error);
+      toast({
+        title: "Oops! Something went wrong, please try again.",
+        description: "Please check your connection and try again.",
+        variant: "destructive"
+      });
+    } finally {
       setIsSubmitting(false);
-    }, 1000);
+    }
   };
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({
