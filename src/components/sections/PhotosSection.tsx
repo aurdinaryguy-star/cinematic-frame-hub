@@ -18,7 +18,7 @@ const PhotosSection = () => {
   const [isLightboxOpen, setIsLightboxOpen] = useState(false);
   const [activeTab, setActiveTab] = useState("architecture");
 
-  const categories = ["architecture", "cars", "ecommerce", "travel", "landscapes"];
+  const categories = ["architecture", "lifestyle", "travel", "landscapes"];
 
   // URL navigation logic
   useEffect(() => {
@@ -42,22 +42,20 @@ const PhotosSection = () => {
     { id: "arch4", src: "/placeholder.svg", alt: "Interior Space", category: "architecture" },
     { id: "arch5", src: "/placeholder.svg", alt: "Architectural Detail", category: "architecture" },
     { id: "arch6", src: "/placeholder.svg", alt: "City Skyline", category: "architecture" },
+    { id: "arch7", src: "/placeholder.svg", alt: "Contemporary Design", category: "architecture" },
+    { id: "arch8", src: "/placeholder.svg", alt: "Minimalist Structure", category: "architecture" },
+    { id: "arch9", src: "/placeholder.svg", alt: "Glass Facade", category: "architecture" },
+    { id: "arch10", src: "/placeholder.svg", alt: "Concrete Architecture", category: "architecture" },
+    { id: "arch11", src: "/placeholder.svg", alt: "Industrial Design", category: "architecture" },
+    { id: "arch12", src: "/placeholder.svg", alt: "Architectural Photography", category: "architecture" },
     
-    // Cars
-    { id: "car1", src: "/placeholder.svg", alt: "Sports Car", category: "cars" },
-    { id: "car2", src: "/placeholder.svg", alt: "Classic Vehicle", category: "cars" },
-    { id: "car3", src: "/placeholder.svg", alt: "Racing Car", category: "cars" },
-    { id: "car4", src: "/placeholder.svg", alt: "Luxury Car", category: "cars" },
-    { id: "car5", src: "/placeholder.svg", alt: "Vintage Auto", category: "cars" },
-    { id: "car6", src: "/placeholder.svg", alt: "Car Detail", category: "cars" },
-    
-    // E-commerce
-    { id: "ecom1", src: "/placeholder.svg", alt: "Product Shot", category: "ecommerce" },
-    { id: "ecom2", src: "/placeholder.svg", alt: "Fashion Item", category: "ecommerce" },
-    { id: "ecom3", src: "/placeholder.svg", alt: "Jewelry", category: "ecommerce" },
-    { id: "ecom4", src: "/placeholder.svg", alt: "Tech Product", category: "ecommerce" },
-    { id: "ecom5", src: "/placeholder.svg", alt: "Home Goods", category: "ecommerce" },
-    { id: "ecom6", src: "/placeholder.svg", alt: "Beauty Product", category: "ecommerce" },
+    // Lifestyle
+    { id: "lifestyle1", src: "/placeholder.svg", alt: "Lifestyle Portrait", category: "lifestyle" },
+    { id: "lifestyle2", src: "/placeholder.svg", alt: "Fashion Style", category: "lifestyle" },
+    { id: "lifestyle3", src: "/placeholder.svg", alt: "Urban Living", category: "lifestyle" },
+    { id: "lifestyle4", src: "/placeholder.svg", alt: "Modern Lifestyle", category: "lifestyle" },
+    { id: "lifestyle5", src: "/placeholder.svg", alt: "Creative Space", category: "lifestyle" },
+    { id: "lifestyle6", src: "/placeholder.svg", alt: "Daily Moments", category: "lifestyle" },
     
     // Travel
     { id: "travel1", src: "/placeholder.svg", alt: "Mountain View", category: "travel" },
@@ -141,16 +139,10 @@ const PhotosSection = () => {
                       Architecture
                     </TabsTrigger>
                     <TabsTrigger 
-                      value="cars"
+                      value="lifestyle"
                       className="data-[state=active]:bg-accent data-[state=active]:text-accent-foreground text-xs py-2 px-4 whitespace-nowrap flex-shrink-0"
                     >
-                      Cars
-                    </TabsTrigger>
-                    <TabsTrigger 
-                      value="ecommerce"
-                      className="data-[state=active]:bg-accent data-[state=active]:text-accent-foreground text-xs py-2 px-4 whitespace-nowrap flex-shrink-0"
-                    >
-                      E-commerce
+                      Lifestyle
                     </TabsTrigger>
                     <TabsTrigger 
                       value="travel"
@@ -169,7 +161,7 @@ const PhotosSection = () => {
               </div>
 
               {/* Desktop: Grid layout */}
-              <TabsList className="hidden md:grid md:grid-cols-5 w-full mb-12 bg-card gap-1 p-1">
+              <TabsList className="hidden md:grid md:grid-cols-4 w-full mb-12 bg-card gap-1 p-1">
                 <TabsTrigger 
                   value="architecture" 
                   className="data-[state=active]:bg-accent data-[state=active]:text-accent-foreground text-sm py-3"
@@ -177,16 +169,10 @@ const PhotosSection = () => {
                   Architecture
                 </TabsTrigger>
                 <TabsTrigger 
-                  value="cars"
+                  value="lifestyle"
                   className="data-[state=active]:bg-accent data-[state=active]:text-accent-foreground text-sm py-3"
                 >
-                  Cars
-                </TabsTrigger>
-                <TabsTrigger 
-                  value="ecommerce"
-                  className="data-[state=active]:bg-accent data-[state=active]:text-accent-foreground text-sm py-3"
-                >
-                  E-commerce
+                  Lifestyle
                 </TabsTrigger>
                 <TabsTrigger 
                   value="travel"
@@ -206,12 +192,8 @@ const PhotosSection = () => {
                 <PhotoGrid category="architecture" />
               </TabsContent>
 
-              <TabsContent value="cars" className="animate-fade-in">
-                <PhotoGrid category="cars" />
-              </TabsContent>
-
-              <TabsContent value="ecommerce" className="animate-fade-in">
-                <PhotoGrid category="ecommerce" />
+              <TabsContent value="lifestyle" className="animate-fade-in">
+                <PhotoGrid category="lifestyle" />
               </TabsContent>
 
               <TabsContent value="travel" className="animate-fade-in">
