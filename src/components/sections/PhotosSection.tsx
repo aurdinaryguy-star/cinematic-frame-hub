@@ -3,6 +3,36 @@ import { useParams, useNavigate } from "react-router-dom";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import ImageLightbox from "@/components/ImageLightbox";
 
+// Architecture images
+import ARCH1 from "@/assets/ARCH1.jpg";
+import ARCH2 from "@/assets/ARCH2.jpg";
+import ARCH3 from "@/assets/ARCH3.jpg";
+import ARCH4 from "@/assets/ARCH4.jpg";
+import ARCH5 from "@/assets/ARCH5.jpg";
+import ARCH6 from "@/assets/ARCH6.png";
+import ARCH7 from "@/assets/ARCH7.png";
+import ARCH9 from "@/assets/ARCH9.png";
+import ARCH10 from "@/assets/ARCH10.png";
+import ARCH11 from "@/assets/ARCH11.png";
+import ARCH12 from "@/assets/ARCH12.png";
+
+// Lifestyle images
+import LIFESTYLE1 from "@/assets/LIFESTYLE1.jpg";
+import LIFESTYLE2 from "@/assets/LIFESTYLE2.jpg";
+import LIFESTYLE3 from "@/assets/LIFESTYLE3.jpg";
+import LIFESTYLE4 from "@/assets/LIFESTYLE4.jpg";
+import LIFESTYLE5 from "@/assets/LIFESTYLE5.jpg";
+import LIFESTYLE6 from "@/assets/LIFESTYLE6.jpg";
+import LIFESTYLE7 from "@/assets/LIFESTYLE7.jpg";
+import LIFESTYLE8 from "@/assets/LIFESTYLE8.jpg";
+import LIFESTYLE9 from "@/assets/LIFESTYLE9.jpg";
+import LIFESTYLE10 from "@/assets/LIFESTYLE10.jpg";
+import LIFESTYLE11 from "@/assets/LIFESTYLE11.jpg";
+import LIFESTYLE12 from "@/assets/LIFESTYLE12.jpg";
+import LIFESTYLE13 from "@/assets/LIFESTYLE13.jpg";
+import LIFESTYLE14 from "@/assets/LIFESTYLE14.jpg";
+import LIFESTYLE15 from "@/assets/LIFESTYLE15.jpg";
+
 interface Photo {
   id: string;
   src: string;
@@ -33,29 +63,36 @@ const PhotosSection = () => {
     navigate(`/photos/${tab}`);
   };
 
-  // Sample photos data - replace with your actual photos
   const photos: Photo[] = [
     // Architecture
-    { id: "arch1", src: "/placeholder.svg", alt: "Modern Architecture", category: "architecture" },
-    { id: "arch2", src: "/placeholder.svg", alt: "Classic Building", category: "architecture" },
-    { id: "arch3", src: "/placeholder.svg", alt: "Urban Design", category: "architecture" },
-    { id: "arch4", src: "/placeholder.svg", alt: "Interior Space", category: "architecture" },
-    { id: "arch5", src: "/placeholder.svg", alt: "Architectural Detail", category: "architecture" },
-    { id: "arch6", src: "/placeholder.svg", alt: "City Skyline", category: "architecture" },
-    { id: "arch7", src: "/placeholder.svg", alt: "Contemporary Design", category: "architecture" },
-    { id: "arch8", src: "/placeholder.svg", alt: "Minimalist Structure", category: "architecture" },
-    { id: "arch9", src: "/placeholder.svg", alt: "Glass Facade", category: "architecture" },
-    { id: "arch10", src: "/placeholder.svg", alt: "Concrete Architecture", category: "architecture" },
-    { id: "arch11", src: "/placeholder.svg", alt: "Industrial Design", category: "architecture" },
-    { id: "arch12", src: "/placeholder.svg", alt: "Architectural Photography", category: "architecture" },
+    { id: "arch1", src: ARCH1, alt: "Modern Architecture", category: "architecture" },
+    { id: "arch2", src: ARCH2, alt: "Classic Building", category: "architecture" },
+    { id: "arch3", src: ARCH3, alt: "Urban Design", category: "architecture" },
+    { id: "arch4", src: ARCH4, alt: "Interior Space", category: "architecture" },
+    { id: "arch5", src: ARCH5, alt: "Architectural Detail", category: "architecture" },
+    { id: "arch6", src: ARCH6, alt: "City Skyline", category: "architecture" },
+    { id: "arch7", src: ARCH7, alt: "Contemporary Design", category: "architecture" },
+    { id: "arch9", src: ARCH9, alt: "Glass Facade", category: "architecture" },
+    { id: "arch10", src: ARCH10, alt: "Concrete Architecture", category: "architecture" },
+    { id: "arch11", src: ARCH11, alt: "Industrial Design", category: "architecture" },
+    { id: "arch12", src: ARCH12, alt: "Architectural Photography", category: "architecture" },
     
     // Lifestyle
-    { id: "lifestyle1", src: "/placeholder.svg", alt: "Lifestyle Portrait", category: "lifestyle" },
-    { id: "lifestyle2", src: "/placeholder.svg", alt: "Fashion Style", category: "lifestyle" },
-    { id: "lifestyle3", src: "/placeholder.svg", alt: "Urban Living", category: "lifestyle" },
-    { id: "lifestyle4", src: "/placeholder.svg", alt: "Modern Lifestyle", category: "lifestyle" },
-    { id: "lifestyle5", src: "/placeholder.svg", alt: "Creative Space", category: "lifestyle" },
-    { id: "lifestyle6", src: "/placeholder.svg", alt: "Daily Moments", category: "lifestyle" },
+    { id: "lifestyle1", src: LIFESTYLE1, alt: "Lifestyle Portrait", category: "lifestyle" },
+    { id: "lifestyle2", src: LIFESTYLE2, alt: "Fashion Style", category: "lifestyle" },
+    { id: "lifestyle3", src: LIFESTYLE3, alt: "Urban Living", category: "lifestyle" },
+    { id: "lifestyle4", src: LIFESTYLE4, alt: "Modern Lifestyle", category: "lifestyle" },
+    { id: "lifestyle5", src: LIFESTYLE5, alt: "Creative Space", category: "lifestyle" },
+    { id: "lifestyle6", src: LIFESTYLE6, alt: "Daily Moments", category: "lifestyle" },
+    { id: "lifestyle7", src: LIFESTYLE7, alt: "Urban Culture", category: "lifestyle" },
+    { id: "lifestyle8", src: LIFESTYLE8, alt: "Creative Portrait", category: "lifestyle" },
+    { id: "lifestyle9", src: LIFESTYLE9, alt: "Fashion Photography", category: "lifestyle" },
+    { id: "lifestyle10", src: LIFESTYLE10, alt: "Contemporary Style", category: "lifestyle" },
+    { id: "lifestyle11", src: LIFESTYLE11, alt: "Artistic Expression", category: "lifestyle" },
+    { id: "lifestyle12", src: LIFESTYLE12, alt: "Modern Portrait", category: "lifestyle" },
+    { id: "lifestyle13", src: LIFESTYLE13, alt: "Lifestyle Moment", category: "lifestyle" },
+    { id: "lifestyle14", src: LIFESTYLE14, alt: "Creative Session", category: "lifestyle" },
+    { id: "lifestyle15", src: LIFESTYLE15, alt: "Portrait Photography", category: "lifestyle" },
     
     // Travel
     { id: "travel1", src: "/placeholder.svg", alt: "Mountain View", category: "travel" },
