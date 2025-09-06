@@ -13,10 +13,10 @@ const Navigation = ({ activeTab, onTabChange }: NavigationProps) => {
   
   const tabs = [
     { id: "home", label: "Home" },
-    { id: "videos", label: "Work" },
-    { id: "photos", label: "Photos" },
+    { id: "work", label: "Work" },
     { id: "about", label: "About" },
     { id: "contact", label: "Contact" },
+    { id: "photos", label: "Photos" },
   ];
 
   const handleTabChange = (tab: string) => {

@@ -19,8 +19,8 @@ const Index = () => {
     const path = location.pathname;
     if (path === "/" || path === "/home") {
       setActiveTab("home");
-    } else if (path.startsWith("/videos")) {
-      setActiveTab("videos");
+    } else if (path.startsWith("/work")) {
+      setActiveTab("work");
     } else if (path.startsWith("/about")) {
       setActiveTab("about");
     } else if (path.startsWith("/contact")) {
@@ -39,7 +39,7 @@ const Index = () => {
     switch (activeTab) {
       case "home":
         return <HomeSection />;
-      case "videos":
+      case "work":
         return <WorkSection />;
       case "about":
         return <AboutSection />;
