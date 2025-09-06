@@ -17,13 +17,17 @@ const App = () => (
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/home" element={<Index />} />
-          <Route path="/work" element={<Index />} />
-          <Route path="/work/:category" element={<Index />} />
-          <Route path="/work/:category/:project" element={<Index />} />
+          <Route path="/videos" element={<Index />} />
+          <Route path="/videos/:category" element={<Index />} />
+          <Route path="/videos/:category/:project" element={<Index />} />
           <Route path="/about" element={<Index />} />
           <Route path="/contact" element={<Index />} />
           <Route path="/photos" element={<Index />} />
           <Route path="/photos/:category" element={<Index />} />
+          {/* Redirects for old /work routes */}
+          <Route path="/work" element={<Index />} />
+          <Route path="/work/:category" element={<Index />} />
+          <Route path="/work/:category/:project" element={<Index />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

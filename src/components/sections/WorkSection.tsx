@@ -86,7 +86,7 @@ const WorkSection = () => {
 
   const categories: Category[] = [
     {
-      id: "commercial",
+      id: "commercial-projects",
       title: "Commercial Projects",
       description: "Brand campaigns and corporate storytelling",
       icon: Briefcase,
@@ -151,7 +151,7 @@ const WorkSection = () => {
       ]
     },
     {
-      id: "influencer",
+      id: "influencer-content",
       title: "Influencer Content",
       description: "Social media and lifestyle content",
       icon: Users,
@@ -179,7 +179,7 @@ const WorkSection = () => {
       ]
     },
     {
-      id: "independent",
+      id: "independent-projects",
       title: "Independent Projects",
       description: "Personal creative endeavors",
       icon: Video,
@@ -204,24 +204,24 @@ const WorkSection = () => {
   const handleCategorySelect = (category: Category) => {
     setSelectedCategory(category);
     setCurrentView("clients");
-    navigate(`/work/${category.id}`);
+    navigate(`/videos/${category.id}`);
   };
 
   const handleClientSelect = (client: Client) => {
     setSelectedClient(client);
     setCurrentView("projects");
-    navigate(`/work/${selectedCategory?.id}/${client.id}`);
+    navigate(`/videos/${selectedCategory?.id}/${client.id}`);
   };
 
   const handleBack = () => {
     if (currentView === "projects") {
       setCurrentView("clients");
       setSelectedClient(null);
-      navigate(`/work/${selectedCategory?.id}`);
+      navigate(`/videos/${selectedCategory?.id}`);
     } else if (currentView === "clients") {
       setCurrentView("categories");
       setSelectedCategory(null);
-      navigate("/work");
+      navigate("/videos");
     }
   };
 
@@ -304,7 +304,7 @@ const WorkSection = () => {
           <div className="animate-fade-in">
             <div className="text-center mb-12 sm:mb-16">
               <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl lg:text-display text-foreground mb-4 sm:mb-6">
-                My Work
+                My Videos
               </h2>
               <p className="font-body text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto px-4">
                 Explore my creative portfolio across different project types
@@ -355,7 +355,7 @@ const WorkSection = () => {
             </div>
 
             {/* For Influencer and Independent, skip client selection and go directly to projects */}
-            {(selectedCategory.id === "influencer" || selectedCategory.id === "independent") ? (
+            {(selectedCategory.id === "influencer-content" || selectedCategory.id === "independent-projects") ? (
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6 max-w-7xl mx-auto">
                 {selectedCategory.clients[0].projects.map((project) => (
                   <div key={project.id}>
