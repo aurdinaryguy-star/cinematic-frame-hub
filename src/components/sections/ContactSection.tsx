@@ -18,24 +18,16 @@ const ContactSection = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-
     try {
-      await emailjs.send(
-        'service_jhchcqf',
-        'template_u3mxkvk',
-        {
-          from_name: formData.name,
-          from_email: formData.email,
-          message: formData.message,
-        },
-        'SJ22wZVDx8ulAVsLo'
-      );
-
+      await emailjs.send('service_jhchcqf', 'template_u3mxkvk', {
+        from_name: formData.name,
+        from_email: formData.email,
+        message: formData.message
+      }, 'SJ22wZVDx8ulAVsLo');
       toast({
         title: "Message sent successfully!",
         description: "Thank you for reaching out. I'll get back to you soon."
       });
-
       setFormData({
         name: "",
         email: "",
@@ -86,12 +78,7 @@ const ContactSection = () => {
                       </div>
                       <div>
                         <h4 className="font-heading text-sm sm:text-base text-foreground mb-1">Email</h4>
-                        <a 
-                          href="mailto:kumarprashdl@gmail.com" 
-                          className="font-body text-sm sm:text-base text-muted-foreground hover:text-accent transition-smooth break-all"
-                        >
-                          kumarprashdl@gmail.com
-                        </a>
+                        <a href="mailto:kumarprashdl@gmail.com" className="font-body text-sm sm:text-base text-muted-foreground hover:text-accent transition-smooth break-all">kumarprakashdl@gmail.com</a>
                       </div>
                     </div>
 
@@ -136,56 +123,24 @@ const ContactSection = () => {
                     <label htmlFor="name" className="block font-body text-xs sm:text-sm font-medium text-foreground mb-2">
                       Name
                     </label>
-                    <Input 
-                      id="name" 
-                      name="name" 
-                      type="text" 
-                      required 
-                      value={formData.name} 
-                      onChange={handleChange} 
-                      className="bg-background/50 border-border focus:border-accent h-10 sm:h-11 text-sm sm:text-base" 
-                      placeholder="Your full name" 
-                    />
+                    <Input id="name" name="name" type="text" required value={formData.name} onChange={handleChange} className="bg-background/50 border-border focus:border-accent h-10 sm:h-11 text-sm sm:text-base" placeholder="Your full name" />
                   </div>
 
                   <div>
                     <label htmlFor="email" className="block font-body text-xs sm:text-sm font-medium text-foreground mb-2">
                       Email
                     </label>
-                    <Input 
-                      id="email" 
-                      name="email" 
-                      type="email" 
-                      required 
-                      value={formData.email} 
-                      onChange={handleChange} 
-                      className="bg-background/50 border-border focus:border-accent h-10 sm:h-11 text-sm sm:text-base" 
-                      placeholder="your.email@example.com" 
-                    />
+                    <Input id="email" name="email" type="email" required value={formData.email} onChange={handleChange} className="bg-background/50 border-border focus:border-accent h-10 sm:h-11 text-sm sm:text-base" placeholder="your.email@example.com" />
                   </div>
 
                   <div>
                     <label htmlFor="message" className="block font-body text-xs sm:text-sm font-medium text-foreground mb-2">
                       Message
                     </label>
-                    <Textarea 
-                      id="message" 
-                      name="message" 
-                      required 
-                      rows={5} 
-                      value={formData.message} 
-                      onChange={handleChange} 
-                      className="bg-background/50 border-border focus:border-accent resize-none text-sm sm:text-base min-h-[120px] sm:min-h-[140px]" 
-                      placeholder="Tell me about your project..." 
-                    />
+                    <Textarea id="message" name="message" required rows={5} value={formData.message} onChange={handleChange} className="bg-background/50 border-border focus:border-accent resize-none text-sm sm:text-base min-h-[120px] sm:min-h-[140px]" placeholder="Tell me about your project..." />
                   </div>
 
-                  <Button 
-                    type="submit" 
-                    disabled={isSubmitting} 
-                    variant="accent" 
-                    className="w-full font-body font-medium h-10 sm:h-11 text-sm sm:text-base touch-manipulation"
-                  >
+                  <Button type="submit" disabled={isSubmitting} variant="accent" className="w-full font-body font-medium h-10 sm:h-11 text-sm sm:text-base touch-manipulation">
                     {isSubmitting ? "Sending..." : "Send Message"}
                   </Button>
                 </form>
