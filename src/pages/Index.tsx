@@ -27,8 +27,11 @@ const Index = () => {
       setActiveTab("contact");
     } else if (path.startsWith("/photos")) {
       setActiveTab("photos");
+    } else {
+      // Handle any other routes by redirecting to home
+      navigate("/", { replace: true });
     }
-  }, [location.pathname]);
+  }, [location.pathname, navigate]);
 
   const handleTabChange = (tab: string) => {
     setActiveTab(tab);
