@@ -32,6 +32,16 @@ import LIFESTYLE12 from "@/assets/LIFESTYLE12.jpg";
 import LIFESTYLE13 from "@/assets/LIFESTYLE13.jpg";
 import LIFESTYLE14 from "@/assets/LIFESTYLE14.jpg";
 import LIFESTYLE15 from "@/assets/LIFESTYLE15.jpg";
+import LIFESTYLE16 from "@/assets/LIFESTYLE16.jpg";
+import LIFESTYLE17 from "@/assets/LIFESTYLE17.jpg";
+import LIFESTYLE18 from "@/assets/LIFESTYLE18.jpg";
+import LIFESTYLE19 from "@/assets/LIFESTYLE19.jpg";
+import LIFESTYLE20 from "@/assets/LIFESTYLE20.jpg";
+import LIFESTYLE21 from "@/assets/LIFESTYLE21.jpg";
+import LIFESTYLE22 from "@/assets/LIFESTYLE22.jpg";
+import LIFESTYLE23 from "@/assets/LIFESTYLE23.jpg";
+import LIFESTYLE24 from "@/assets/LIFESTYLE24.jpg";
+import LIFESTYLE25 from "@/assets/LIFESTYLE25.jpg";
 
 interface Photo {
   id: string;
@@ -93,6 +103,16 @@ const PhotosSection = () => {
     { id: "lifestyle13", src: LIFESTYLE13, alt: "Lifestyle Moment", category: "lifestyle" },
     { id: "lifestyle14", src: LIFESTYLE14, alt: "Creative Session", category: "lifestyle" },
     { id: "lifestyle15", src: LIFESTYLE15, alt: "Portrait Photography", category: "lifestyle" },
+    { id: "lifestyle16", src: LIFESTYLE16, alt: "Creative Lifestyle", category: "lifestyle" },
+    { id: "lifestyle17", src: LIFESTYLE17, alt: "Urban Fashion", category: "lifestyle" },
+    { id: "lifestyle18", src: LIFESTYLE18, alt: "Contemporary Portrait", category: "lifestyle" },
+    { id: "lifestyle19", src: LIFESTYLE19, alt: "Artistic Lifestyle", category: "lifestyle" },
+    { id: "lifestyle20", src: LIFESTYLE20, alt: "Modern Style", category: "lifestyle" },
+    { id: "lifestyle21", src: LIFESTYLE21, alt: "Creative Expression", category: "lifestyle" },
+    { id: "lifestyle22", src: LIFESTYLE22, alt: "Fashion Portrait", category: "lifestyle" },
+    { id: "lifestyle23", src: LIFESTYLE23, alt: "Lifestyle Photography", category: "lifestyle" },
+    { id: "lifestyle24", src: LIFESTYLE24, alt: "Urban Portrait", category: "lifestyle" },
+    { id: "lifestyle25", src: LIFESTYLE25, alt: "Contemporary Lifestyle", category: "lifestyle" },
     
     // Travel
     { id: "travel1", src: "/placeholder.svg", alt: "Mountain View", category: "travel" },
