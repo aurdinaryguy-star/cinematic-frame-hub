@@ -147,6 +147,16 @@ const WorkSection = () => {
             { id: "t1", title: "TPC – Newborn Care", thumbnail: "", type: "youtube", embedId: "jImEMU23RPQ" },
             { id: "t2", title: "TPC – Parenting Video 2", thumbnail: "", type: "youtube", embedId: "lWHWofC8Wys" },
           ]
+        },
+        {
+          id: "loopie",
+          name: "Loopie",
+          projects: []
+        },
+        {
+          id: "truva",
+          name: "Truva",
+          projects: []
         }
       ]
     },
