@@ -11,6 +11,8 @@ import hbsLogo from "@/assets/hbs.png";
 import volunteerYatraLogo from "@/assets/volunteer yatra .jpg";
 import aspenLogo from "@/assets/aspen.png";
 import tpcLogo from "@/assets/TPC.jpeg";
+import loopieLogo from "@/assets/Loopie.jpeg";
+import truvaLogo from "@/assets/Truva.jpeg";
 import heroImage from "@/assets/hero-bg.jpg";
 import portraitImage from "@/assets/portrait.jpg";
 import gymImage from "@/assets/IMG_4581.jpg";
@@ -151,11 +153,13 @@ const WorkSection = () => {
         {
           id: "loopie",
           name: "Loopie",
+          logo: loopieLogo,
           projects: []
         },
         {
           id: "truva",
           name: "Truva",
+          logo: truvaLogo,
           projects: []
         }
       ]
